@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>template</title>
+    <!-- libraries-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <!-- Load jQuery and Sheetrock from CDNJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
+    
+
+    <style>
+        path {
+            cursor: pointer;
+            stroke: rgba(255, 0, 0, 0.5);
+            'stroke-width': 1;
+        }
+        
+        .slideanimate23 {
+            visibility: hidden;
+        }
+
+        .slide23 {
+            visibility: visible;
+        
+         } 
+        
+        
+        
+        .table {
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 50%;
+            min-height: 500px;
+            margin:0px auto;
+        }
+
+    </style>
+
+
+    <script type="text/javascript" src="/js/d3.v3.min.js"></script>
+    <!-- custom files-->
+    <link rel="stylesheet" type="text/css" href="/css/d3map.css">
+    <script type="text/javascript" src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src="/js/waypoints/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="/js/d3map.js"></script>
+    
+    
+
+</head>
+
+<body>
+
+    <div id="div4" class="container-fluid slideanimate23" style="height:1800px;">
+        <div class="container-fluid">
+            <h1>縣市路死記錄數</h1>
+            <p>全台灣有最多路殺死亡的縣市有台南縣與台東縣，約每年4000起。造成這般結果的原因很多，例如特定物種棲息地、物種習性、日夜出沒時間、體積大小與可見度有關。</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <p style="text-align: center">顏色越紅者，數字越高；較青色則漸低。</p>
+                <svg width="800px" height="650px" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid"></svg>
+            </div>
+            <div class="col-sm-6">
+                <table id="mytable1" class="table"></table>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script>
+        $(document).ready(function() {
+            var density = {
+                "連江縣": 1142, //1
+                "金門縣": 494, //2
+                "宜蘭縣": 642, //3
+                "新竹縣": 1444, //4
+                "苗栗縣": 1359, //5
+                "彰化縣": 846, //6
+                "南投縣": 2298, //7
+                "雲林縣": 2193, //8
+                "嘉義縣": 4133, //9
+                "屏東縣": 1340, //10
+                "臺東縣": 4813, //11
+                "花蓮縣": 1508, //12
+                "澎湖縣": 63, //13
+                "基隆市": 66, //14
+                "新竹市": 172, //15
+                "嘉義市": 473, //16
+                "臺北市": 1942, //17
+                "高雄市": 2715, //18
+                "新北市": 2007, //19
+                "臺中市": 1840, //20
+                "臺南市": 6310, //21
+                "桃園市": 2730 //22
+
+            };
+            d3.json("county.json", function(topodata) {
+                var features = topojson.feature(topodata, topodata.objects["county"]).features;
+                var color = d3.scale.linear().domain([0, 10000]).range(["#090", "#f00"]);
+                var path = d3.geo.path().projection( // 路徑產生器
+                    d3.geo.mercator().center([121, 24]).scale(6000) // 座標變換函式
+                );
+
+                d3.select("svg").selectAll("path").data(features).enter().append("path").attr("d", path, );
+
+                for (i = features.length - 1; i >= 0; i--) {
+                    features[i].properties.density = density[features[i].properties.C_Name];
+                }
+                var color = d3.scale.linear().domain([0, 10000]).range(["#090", "#f00"]);
+                d3.select("svg").selectAll("path").data(features).attr({
+                    d: path,
+                    fill: function(d) {
+                        return color(d.properties.density);
+                    }
+                });
+            });
+        });
+        
+        $(function() {
+            $(window).scroll(function() {
+                $(".slideanimate23").each(function() {
+                    var winTop = $(window).scrollTop();
+                    var winh = $(window).height();
+                    var objpos = $(this).offset().top;
+                    if (objpos < winTop + winh * 0.5) {
+                        $(this).addClass("animated fadeInUp slide23");
+                    }
+                    if (winTop == 0) {
+                        $(this).removeClass("animated fadeInUp slide23");
+                    }
+                });
+            });
+        });
+        
+        
+       
+
+
+        var mygoogleSpreadsheet =  "https://docs.google.com/spreadsheets/d/1AfNmBZXzqvR6gAX_cE2s4WKwNrvvPG49PP3BfVon1-c/edit#gid=0"
+        $("#mytable1").sheetrock({
+            url: mygoogleSpreadsheet,
+            query: "select A,B",
+            fetchSize: 24
+        });
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Web Tutorial</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!--Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Passero+One" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rancho&effect=3d-float|3d">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .video-background {
+            background: #000;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -99;
+        }
+
+        .video-foreground,
+        .video-background iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        #vidtop-content {
+            top: 0;
+            color: #fff;
+        }
+
+        .vid-info {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 33%;
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            padding: 1rem;
+            font-family: Avenir, Helvetica, sans-serif;
+        }
+
+        .vid-info h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-top: 0;
+            line-height: 1.2;
+        }
+
+        .vid-info a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            background: rgba(0, 0, 0, 0.5);
+            transition: .6s background;
+            border-bottom: none;
+            margin: 1rem auto;
+            text-align: center;
+        }
+
+        @media (min-aspect-ratio: 16/9) {
+            .video-foreground {
+                height: 300%;
+                top: -100%;
+            }
+        }
+
+        @media (max-aspect-ratio: 16/9) {
+            .video-foreground {
+                width: 300%;
+                left: -100%;
+            }
+        }
+
+        @media all and (max-width: 600px) {
+            .vid-info {
+                width: 50%;
+                padding: .5rem;
+            }
+            .vid-info h1 {
+                margin-bottom: .2rem;
+            }
+        }
+
+        @media all and (max-width: 500px) {
+            .vid-info .acronym {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="video-background">
+        <div class="video-foreground">
+            <iframe id="video1" src="https://www.youtube.com/embed/Egrpx5g0UgI?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=W0LHTWG-UmQ" frameborder="0" allowfullscreen></iframe>
+
+        </div>
+    </div>
+
+    <div id="vidtop-content">
+        <div class="vid-info">
+            <h1>YouTube Fullscreen Background Demo</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ultrices, ligula pulvinar rutrum condimentum, tortor libero mollis sem, a viverra risus elit sed arcu. Aliquam in nibh eros. Cras condimentum elit venenatis pharetra facilisis. In hac habitasse platea dictumst. Nunc eu lobortis lorem, sed sollicitudin leo. Proin vel facilisis diam. Pellentesque ac risus malesuada, efficitur lacus et, convallis massa. Aliquam eros nisl, vestibulum ac leo quis, elementum fermentum tortor. Aenean vitae bibendum libero, varius tempus urna. Sed et odio id lorem tempus scelerisque. Morbi efficitur condimentum rutrum. Sed magna magna, iaculis eget libero ut, pretium tincidunt libero.</p>
+                    <a href="https://www.youtube.com/embed/Egrpx5g0UgI">Full article</a>
+        </div>
+    </div>
+    
+    <div id="div2" class="container-fluid" style="width:100%;background: linear-gradient(red, yellow);min-height:200vh;margin-top:100vh;"></div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            var video = $("#video1").attr("src");
+            var pos_div2 = $("#div2").position().top;
+            var winh = $(window).height();
+            console.log(pos_div2);
+            $(window).scroll(function() {
+                var scroll = $(window).scrollTop();
+                console.log(scroll);
+                if(scroll > pos_div2 + winh){
+//                    $('#video1').get(0).stopVideo();
+                    $("#video1").attr("src","");
+                }
+                
+                if(scroll == 0){
+                    $("#video1").attr("src",video);
+                }
+            });
+        });
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rancho|Archivo-Black|Passero+One&effect=emboss">
+<!--    <link rel="stylesheet" href="myspy.css">-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        
+        #moved {
+            position: absolute;
+            left: 0;
+            height: 50px;
+            width: 10%;
+        }
+    </style>
+</head>
+
+
+
+
+<body id="myPage">
+
+<div id="fixed" class="container-fluid text-center" style="background-color:darkgrey;width:100%;min-height:50px;position:fixed">
+    <div id="moved" style="background-color:rgba(0, 0, 0, 0.5)"></div>
+</div>
+
+<div class="jumbotron text-center" style="margin:0px;">
+    <h1 class="font-effect-emboss">7_1_scrollspy_div</h1>
+</div>
+
+<div id="area1" class="container-fluid" style="color:white;background-color:#CCC;min-height:500px"><h1>area 1</h1></div>
+<div id="area2" class="container-fluid" style="color:white;background-color:#AAA;min-height:500px"><h1>area 2</h1></div>
+<div id="area3" class="container-fluid" style="color:white;background-color:#888;min-height:500px"><h1>area 3</h1></div>
+<div id="area4" class="container-fluid" style="color:white;background-color:#666;min-height:500px"><h1>area 4</h1></div>
+<div id="area5" class="container-fluid" style="color:white;background-color:#444;min-height:500px"><h1>area 5</h1></div>
+
+<footer class="container-fluid text-center" style="min-height: 1000px;background-color: black;"></footer>
+
+<script>
+$(function() {
+    var window_width = $(window).width() - $('#moved').width();
+    console.log('window width\t' + $(window).width());
+    console.log('object width\t' + $('#moved').width());
+
+    var arr = [0, //arr[0]
+        $('#area1').offset().top, //arr[1]
+        $('#area2').offset().top, //arr[2]
+        $('#area3').offset().top, //arr[3]
+        $('#area4').offset().top, //arr[4]
+        $('#area5').offset().top, //arr[5]
+        $(document).height()
+    ]; //arr[6]
+
+    console.log(arr);
+
+    $(window).scroll(function() {
+        var document_height = $(document).height() - $(window).height();
+        var scroll_position = $(window).scrollTop();
+        console.log(scroll_position);
+        for (var i = 0; i < arr.length - 1; i++) {
+            if (arr[i] < scroll_position && scroll_position < arr[i + 1]) {
+                var object_position_left = window_width * (arr[i] / document_height);
+                $('#moved').css({
+                    left: object_position_left
+                });
+            }
+        }
+    });
+
+
+});
+</script>
+
+</body>
+
+</html>

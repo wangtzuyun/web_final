@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en">
+
+<head prefix="og: http://ogp.me/ns#">
+    <title>final bo+tzu+hui</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rancho|Archivo-Black|Passero+One&effect=emboss">
+    <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+
+
+
+
+
+    <style>
+        
+        
+        #div1 {
+            background-image: url("assets/road.png");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #div2 {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+          
+        .slideanimate201 {
+            visibility: hidden;
+        }
+     
+        .slide201 {
+            visibility: visible;
+        }
+  
+        .slideanimate21 {
+            visibility: hidden;
+        }
+
+        .slide21 {
+            visibility: visible;
+        }
+        
+        .slideanimate22 {
+            visibility: hidden;
+        }
+
+        .slide22 {
+            visibility: visible;
+         }
+        
+        .slideanimate23 {
+            visibility: hidden;
+        }
+
+        .slide23 {
+            visibility: visible;
+        
+         }     
+         
+
+        .slideanimate1 {
+            visibility: hidden;
+        }
+
+        .slide1 {
+            visibility: visible;
+        }
+        
+        
+        
+        h1 {
+            padding-top: 300px;
+            padding-right: 300px;
+            padding-bottom: 50px;
+            padding-left: 300px;
+            text-align: center;
+            font-size: 300%;
+            font-family: Microsoft JhengHei;
+        }
+
+       h4 {
+            padding-top: 300px;
+            padding-right: 300px;
+            padding-bottom: 50px;
+            padding-left: 300px;
+            text-align:left;
+            line-height: 1.8;
+            font-size: 130%
+        }
+
+        
+     
+        #text {
+            padding-top: 50px;
+            padding-right: 300px;
+            padding-bottom: 50px;
+            padding-left: 300px;
+            letter-spacing: 3px;
+            line-height: 1.8;
+            font-size: 140%;
+            font-family: Microsoft JhengHei;
+        }
+
+        #text1{
+            padding-top: 30px;     
+            text-align: left;
+            letter-spacing: 2.5px;
+            line-height: 1.8;
+            font-size: 130%;
+            font-family: Microsoft JhengHei;
+        }
+
+        #text2{
+            padding-top: 50px;     
+            text-align: left;
+            letter-spacing: 2px;
+            line-height: 1.8;
+            font-size: 130%;
+            font-family: Microsoft JhengHei;
+        }
+        
+        #text3{
+            padding-top: 50px;
+            padding-left: 250px;
+            padding-right: 250px;
+            padding-bottom:100px
+            text-align: left;
+            letter-spacing: 1.3px;
+            line-height: 1.5;
+            font-size: 130%;
+            font-family: Microsoft JhengHei;
+        }
+        
+        
+        
+        .table {
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 50%;
+            min-height: 500px;
+            margin:0px auto;
+        }
+        
+        //柏賢修改
+        path {
+            cursor: pointer;
+            stroke: rgba(255, 0, 0, 0.5);
+            'stroke-width': 1;
+        }
+        //柏賢修改
+
+        
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="/js/d3.v3.min.js"></script>
+    <!-- custom files-->
+    <link rel="stylesheet" type="text/css" href="/css/d3map.css">
+    <script type="text/javascript" src="http://d3js.org/topojson.v1.min.js"></script>
+    <script type="text/javascript" src="/js/d3map.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.0.0/dist/sheetrock.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['月份', '死亡總數', ],
+                ['一月', 2642, ],
+                ['二月', 1733, ],
+                ['三月', 2757, ],
+                ['四月', 8374, ],
+                ['五月', 6935, ],
+                ['六月', 7553, ],
+                ['七月', 9787, ],
+                ['八月', 6981, ],
+                ['九月', 6426, ],
+                ['十月', 9680, ],
+                ['十一月', 7377, ],
+                ['十二月', 2729, ],
+
+
+
+            ]);
+
+            var options = {
+                title: '路殺資料月統計圖（2011-2018）',
+                curveType: 'function',
+                legend: {
+                    position: 'bottom'
+                }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+
+    </script>
+
+
+
+
+</head>
+
+
+
+<body>
+    
+<!--div1背景動畫:no-->
+    <div id="div1" class="container-fluid innershadow1" style="background-color:black;height:200vh;position:relative;">
+        <img id="car" data-top=12 data-left=38 data-width=10 src="assets/car.png" class="dropshadow1" style="position:absolute;width:10%;top:12%;left:38%;filter:grayscale(.2) blur(1px);">
+        <img id="crab" data-top=25 data-left=65 data-width=20 src="assets/crab.png" class="dropshadow1" style="position:absolute;width:20%;top:25%;left:65%;">
+
+    </div>
+
+<!--div2引言:OK-->
+     <div id="div2" class="container-fluid" style="background-color:black;height:180vh;color: azure">
+        <h1 class="container-fluid slideanimate21">牠們，「在路上」....</h1>
+
+        <div class="row">
+            <div class="col-sm-2.5"></div>
+            <div id="text1" class="text col-sm-7 container ">
+                <p class="  slideanimate22">根據交通部統計，台灣道路密度全球排行第13名，汽車密度更是世界第1。</p>
+                <br>
+                <p class=" slideanimate22">然而，2012至2017年間，全台各式道路至少記錄了98700件動物死亡事件，當中更有8200件是發生在保育類動物身上。</p>
+                <br>
+                <p class="  slideanimate22">當人類的開發日益擴張，享受更便利的資源生活，我們是否注意到那些因此被壓縮生活空間、影響生活型態的野生動物？<br><br>棲地消失被迫遷徙，或者原有生存方式被干擾的他們，常常成了馬路上最沈默無聲的車禍受害者。<br>這樣的事情不是歷史，而是不斷發生中的進・行・式...</p>
+            </div>
+            <div class="col-sm-2.5"></div>
+        </div>
+    </div>
+
+  <!--div3焦點物種:soso-->  
+    <div id="div3" style="min-height:6000px;width:100%;background-image: url(assets/newspec-front.png);background-repeat: no-repeat;
+    background-attachment:fixed;background-position:left ;background-size:cover;">
+
+        <img id="spec1" class="slideanimate201" src="assets/newspec-4spe.png" data-speed=0.2 style="position:absolute;height:100vh;transform:translate(100vw);">
+    </div>
+
+<!--div4縣市OK-->  
+    
+    <div id="div4" class="container-fluid " style="height:350vh; background-color: ghostwhite">   
+    <!--<div id="div4" class="container-fluid " style="min-height: 200vh ; background-color: ghostwhite">-->
+        <div class="container-fluid" style="padding-bottom: 30px">
+            <h1 class=" slideanimate23"  >從數據看路殺</h1>
+            <p  id="text3" class=" slideanimate23" >近年來動物路殺現象逐漸被關注，也逐漸累積相關統計數據。<br>一起從數據圖表更認識路殺現象吧。
+            </p>
+        </div>
+        
+       <div class="container-fluid" style="padding-bottom: 80px">
+            <h1 class=" slideanimate25" style="line-height: 1.8" >- 1 -<br>全台各縣市路死記錄數</h1>
+            <p id="text3" class=" slideanimate23" >在目前全台灣有最多路殺死亡紀錄數的縣市有<b>台南縣</b>與<b>台東縣</b>，約每年4000起。造成這個結果的原因很多，像是特定物種棲息地、物種習性、日夜出沒時間、體積大小與可見度都有相關。</p>
+        </div>
+   
+      
+        <div class="row slideanimate1 ">
+        
+            <!--左邊:文字說明和顏色地圖-->
+            <div class="col-sm-6">
+                <p style="text-align: center;color: gray;font-family: Microsoft JhengHei;">顏色越<span style="color:red;">紅</span>者，數字越高；較青色則漸低。</p>
+                <svg width="800px" height="650px" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid"></svg>
+            </div>     
+                <!--右邊:縣市紀錄排行榜-->
+            <div class="col-sm-5">
+                <table id="mytable1" class="table  table-sm table-hover "></table>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+          
+     
+    </div>
+
+    
+    <!--div5物種ok但排行榜的排版還可以更好-->  
+     <div id="div5" style="background-color:ghostwhite;">
+        <div class="container-fluid" style="min-height: 70vh;">
+            <!--5-1引言-->
+            <div class="container-fluid animated slideanimate1" style="padding-top: 100px;padding-bottom: 100px;text-align: center;font-family: Microsoft JhengHei;">
+                <h2>那，你知道有哪些動物常因為路殺死掉嗎？</h2>
+                <h2>是家中常養的小貓小狗？</h2>
+                <h2>還是鴿子麻雀？</h2>
+            </div>
+            
+            <!--5-2排行榜:左邊字右邊圖表-->
+            <div id="table2" >
+                <h1  class="slideanimate25" style="line-height: 1.8">-2-<br>路殺物種排行榜</h1>
+                <div class="row slideanimate22">
+                    <div class="col-md-4" style="text-align:left;font-size: 120%;font-family: Microsoft JhengHei;padding-left: 8vw">
+                        <p>根據路殺社統計資料，全台灣最多因路殺死亡的是奧氏後相手蟹與黑眶蟾蜍。
+                            <br>
+                            <br>
+                            意外的是，生活在我們周遭的麻雀、貓狗也常因路殺而死亡。
+                            <br>
+                            <br>
+                            除了因路殺，許多動物因為誤食防治作物病蟲害的農藥，或者飛行較快的動物看不清現代建築採用的透明玻璃撞上後致死。
+                        </p>
+                    </div>
+                    <div class="col-md-7" ><canvas id="myChart" width="100" height="50"></canvas>
+                    </div>
+                     <div class="col-md-1" >
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center;padding-top: 100px;font-family: Microsoft JhengHei;">
+                
+                
+             <!--5-3前15的物種排行-->      
+                <h2 class="slideanimate23" style="font-size: 250%;padding-bottom: 50px" >物種排行- <span style="color:red;font-size: 80%">Top 15 Species</span></h2>
+                
+                <div class="row">
+                 <div class="col-md-1"></div>
+                <div class="col-md-10  "> 
+                <p class="slideanimate22">占總數量36.0%，含外部匯入資料，僅分析2011/8/22日之後的統計資料</p>
+                <table id="mytable" class="table table-hover slideanimate22"></table>
+            </div>
+                
+                    <div class="col-md-1"></div>
+        </div>
+
+            </div>
+         </div>
+    </div>
+         
+   <!--div6月統計圖-->             
+ <div id="div6" style="background-color:ghostwhite;">
+
+        <div class="container-fluid" style="font-family: Microsoft JhengHei; height: 1300px" >
+            <h1 class="slideanimate25" style="text-align: center" >-3-<br>路殺資料月統計圖<br><span style="font-size: 80%">（2011-2018）</span></h1>
+                  <p class="slideanimate22" style="padding-bottom: 25px;font-size: 130% ;text-align: center">  從多年累積的資料來看，4-10月為路殺較高峰期，
+                     可能與動物在春夏季較為活躍、有更多的移動有關</p>
+                   <p class="slideanimate22" style="padding-bottom: 25px;font-size: 130%;color: gray;text-align: center" >  ps.將游標移至線條上各月份對應點可看見該月統計數字</p>
+    
+            <div id="curve_chart" class="container-fluid slideanimate22" style="width: 1000px; height: 500px;">
+            </div>
+        </div>
+
+
+
+    </div>
+   
+
+<!--div7路殺社介紹ok--> 
+    <div id="div7" class="container-fluid" style="background-color:black;height:200vh;color: azure;padding-top: 500px">
+
+        <div class="row">
+            <div class="col-sm-2.5">
+
+            </div>
+            <div class=" col-sm-7 container ">
+
+                
+                <h2 class="container-fluid slideanimate22" style="text-align: left;line-height: 1.8;font-family: Microsoft JhengHei;" > 稍微了解路殺之後，是否會開始好奇，
+                    <br>究竟這些動輒萬筆的資訊是從何而來？
+                </h2>
+
+                <br>
+
+                <div id="text2">
+                    <p class="container-fluid slideanimate23">路殺社，全名「臺灣野生動物路死觀察網」，成立於 2011 年。路殺社奠基於推廣全民參與科學調查、關心環境議題，以此為據，建構生態友善道路以改善野生動物路死現象，推廣民眾終身且實際參與環境學習活動，建立所有物種生而平等、生命等值之觀念，並鼓勵參與者協助撿拾和寄送路死標本提供典藏和研究，讓已逝的生命能發揮更大的價值。
+
+                    </p>
+
+                    <br>
+
+                    <p class="container-fluid slideanimate23">當年自 Facebook 社團起家，從最初的網友主動上傳各地被車輛撞擊致死的野生動物，到現在開始以系統化調查，建立台灣動物路死資料庫，路殺社逐步落實落實開放資料的公民科學。除此之外，也於 2017 年開始，宣布將與國道高速公路局跨部門合作，收錄國道高速公路局的路殺事件通報，將能更全面呈現台灣動物路殺事故的分布狀況。
+
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-2.5">
+
+            </div>
+        </div>
+
+
+    </div> 
+    
+   <!--div8延伸參考網站ok-->  
+      <div class="container-fluid" style="background-color:black;height:200vh;color: azure">
+        <h1 class="container-fluid slideanimate21">如果你也想知道更多...        </h1>
+        <br>
+        <div class="row container-fluid slideanimate23 ">
+            <div class="col-sm-4">
+                <div class="card text-white bg-dark border-dark ">
+                    <div class="card-body">
+                        <h5 class="card-title">台灣動物路死觀察網</h5>
+                        <p class="card-text">最詳細豐富的路死動物相關資料彙整，計畫參與說明以及歷來研究成果、相關報導</p>
+                        <a href="https://roadkill.tw/" class="btn btn-danger">來去首頁</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card text-white bg-dark border-dark  ">
+                    <div class="card-body ">
+                        <h5 class="card-title">路殺社Facebook社團</h5>
+                        <p class="card-text">上傳、討論、分享，一起參與關心台灣野生動物生態環境的公民社群</p>
+                        <a href="https://www.facebook.com/groups/roadkilled/" class="btn btn-danger">到社團看看</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card card text-white bg-dark border-dark ">
+                    <div class="card-body">
+                        <h5 class="card-title">精彩報導</h5>
+                        <p class="card-text">由報導者進行專訪報導，完整精彩的介紹路殺社的故事：你是那個劊子手嗎？觀光客車輪下的動物亡魂</p>
+                        <a href="https://www.twreporter.org/a/taiwan-roadkill-observation-animals" class="btn btn-danger">精彩故事</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>  
+
+ 
+
+
+
+    <!--茲筠修改-->
+    <script>
+        $(document).ready(function() {
+            var div1_pos = $("#div1").offset().top;
+            var div2_pos = $("#div2").offset().top;
+            var winh = $(window).height();
+            $(window).scroll(function() {
+                var scrolled = $(window).scrollTop();
+                var div1_scrolled = scrolled - div1_pos;
+                if (div1_scrolled > 0 && scrolled < div2_pos - winh) {
+                    $("#crab").css('left', ($("#crab").data('left') - div1_scrolled * 0.03) + '%');
+                    $("#car").css('left', ($("#car").data('left') - div1_scrolled * 0.04) + '%');
+                    $("#car").css('top', ($("#car").data('top') + div1_scrolled * 0.07) + '%');
+                    $("#crab").css('top', ($("#crab").data('top') + div1_scrolled * 0.075) + '%');
+
+                    $("#car").css('width', ($("#car").data('width') + div1_scrolled * 0.055) + '%');
+                    //$("#crab").css('width', ($("#crab").data('width') + div1_scrolled * 0.01) + '%');
+
+                    console.log("div1_pos:" + div1_pos +
+                        "\tscrolled:" + scrolled +
+                        "\tdiv2:" + space1_pos);
+                }
+            });
+        });
+        <!--茲筠修改-->
+
+            $(function() {
+            $(window).scroll(function() {
+                $(".slideanimate21").each(function() {
+                    var winTop = $(window).scrollTop();
+                    var winh = $(window).height();
+                    var objpos = $(this).offset().top;
+                    if (objpos < winTop + winh * 0.5) {
+                        $(this).addClass("animated zoomIn slide21");
+                        $(this).data("top");
+                        $(this).data("speed");
+                    }
+                    if (winTop == 0) {
+                        $(this).removeClass("animated zoomIn slide21");
+                    }
+                });
+            });
+        });
+
+        $(function() {
+            $(window).scroll(function() {
+                $(".slideanimate22").each(function() {
+                    var winTop = $(window).scrollTop();
+                    var winh = $(window).height();
+                    var objpos = $(this).offset().top;
+                    if (objpos < winTop + winh * 0.5) {
+                        $(this).addClass("animated fadeInUp slide22");
+                    }
+                    if (winTop == 0) {
+                        $(this).removeClass("animated fadeInUp slide22");
+                    }
+                });
+            });
+        });
+
+        $(function() {
+            $(window).scroll(function() {
+                $(".slideanimate23").each(function() {
+                    var winTop = $(window).scrollTop();
+                    var winh = $(window).height();
+                    var objpos = $(this).offset().top;
+                    if (objpos < winTop + winh * 0.5) {
+                        $(this).addClass("animated fadeInUp slide23");
+                    }
+                    if (winTop == 0) {
+                        $(this).removeClass("animated fadeInUp slide23");
+                    }
+                });
+            });
+        });
+        
+                $(function() {
+            $(window).scroll(function() {
+                $(".slideanimate24").each(function() {
+                    var winTop = $(window).scrollTop();
+                    var winh = $(window).height();
+                    var objpos = $(this).offset().top;
+                    if (objpos < winTop + winh * 0.7) {
+                        $(this).addClass("animated fadeInUp slide24");
+                    }
+                    if (winTop == 0) {
+                        $(this).removeClass("animated fadeInUp slide24");
+                    }
+                });
+            });
+        });
+        
+         $(function() {
+            $(window).scroll(function() {
+                $(".slideanimate25").each(function() {
+                    var winTop = $(window).scrollTop();
+                    var winh = $(window).height();
+                    var objpos = $(this).offset().top;
+                    if (objpos < winTop + winh * 0.5) {
+                        $(this).addClass("animated bounceIn slide25");
+                    }
+                    if (winTop == 0) {
+                        $(this).removeClass("animated bounceIn slide25");
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function() {
+            var winw = $(window).width(),
+                winh = $(window).height();
+            var doch = $(document).height() - winh;
+            var div3top = $("#div3").offset().top,
+                div4top = $("#div4").offset().top;
+
+            $(window).scroll(function() {
+                var scrolled = $(window).scrollTop();
+
+
+                if (div3top < scrolled && scrolled < div4top - winh) {
+                    var update_spec1 = (100 - (scrolled - div3top) / $("#div3").height() * 450);
+                    $("#spec1").addClass("animated slide201");
+
+                    $("#spec1").css('transform', "translate(" + update_spec1 + "vw)");
+
+                    $("#spec1").css('top', scrolled + "px");
+                }
+
+            });
+        });
+
+        <!--蕙慈新增-->                
+
+
+        $(function() {
+            $(window).scroll(function() {
+                $(".slideanimate1").each(function() {
+                    var winTop = $(window).scrollTop();
+                    var winh = $(window).height();
+                    var objpos = $(this).offset().top;
+                    //final3新增
+                    if (objpos < winTop + winh * 0.25) {
+                        $(this).addClass("animated fadeIn slide1");
+                    }
+                    if (winTop == 0) {
+                        $(this).removeClass("animated fadeIn slide1");
+                    }
+                });
+            });
+        });
+
+
+        $(document).ready(function() {
+            var density = {
+                "連江縣": 1142, //1
+                "金門縣": 494, //2
+                "宜蘭縣": 642, //3
+                "新竹縣": 1444, //4
+                "苗栗縣": 1359, //5
+                "彰化縣": 846, //6
+                "南投縣": 2298, //7
+                "雲林縣": 2193, //8
+                "嘉義縣": 4133, //9
+                "屏東縣": 1340, //10
+                "臺東縣": 4813, //11
+                "花蓮縣": 1508, //12
+                "澎湖縣": 63, //13
+                "基隆市": 66, //14
+                "新竹市": 172, //15
+                "嘉義市": 473, //16
+                "臺北市": 1942, //17
+                "高雄市": 2715, //18
+                "新北市": 2007, //19
+                "臺中市": 1840, //20
+                "臺南市": 6310, //21
+                "桃園市": 2730 //22
+
+            };
+            d3.json("county.json", function(topodata) {
+                var features = topojson.feature(topodata, topodata.objects["county"]).features;
+                var color = d3.scale.linear().domain([0, 10000]).range(["#090", "#f00"]);
+                var path = d3.geo.path().projection( // 路徑產生器
+                    d3.geo.mercator().center([121, 24]).scale(6000) // 座標變換函式
+                );
+
+                d3.select("svg").selectAll("path").data(features).enter().append("path").attr("d", path, );
+
+                for (i = features.length - 1; i >= 0; i--) {
+                    features[i].properties.density = density[features[i].properties.C_Name];
+                }
+                var color = d3.scale.linear().domain([0, 10000]).range(["#090", "#f00"]);
+                d3.select("svg").selectAll("path").data(features).attr({
+                    d: path,
+                    fill: function(d) {
+                        return color(d.properties.density);
+                    }
+                });
+            });
+        });
+
+
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var chartdata = {
+            type: 'bar',
+            data: {
+                labels: ["奧氏後相手蟹", "黑眶蟾蜍", "麻雀", "家犬", "家貓", "青蛇"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [7274, 7012, 6073, 4864, 3657, 2528],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                responsive: true // default true
+            }
+        };
+        var inView = false;
+        $(document).ready(function() {
+            $(window).scroll(function() {
+                var winTop = $(window).scrollTop();
+                var winh = $(window).height();
+                var objpos = $("#myChart").offset().top;
+                if (objpos < winTop + winh * 0.5 && !inView) {
+                    new Chart(ctx, chartdata);
+                    inView = true;
+                    console.log("successful!!");
+                }
+
+            });
+        });
+
+        var mygoogleSpreadsheet = "https://docs.google.com/spreadsheets/d/1hNKEH1xmRyegGgykmfnoYGBFwVWkZOgOIpVi0NjABPk/edit#gid=0"
+        $("#mytable").sheetrock({
+            url: mygoogleSpreadsheet,
+            query: "select A,B,C",
+            fetchSize: 15
+
+        });
+
+        var mygoogleSpreadsheet =  "https://docs.google.com/spreadsheets/d/1AfNmBZXzqvR6gAX_cE2s4WKwNrvvPG49PP3BfVon1-c/edit#gid=0"
+        $("#mytable1").sheetrock({
+            url: mygoogleSpreadsheet,
+            query: "select A,B",
+            fetchSize: 24
+        });
+
+    </script>
+</body>
+
+</html>

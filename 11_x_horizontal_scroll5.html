@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Hello, world!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Passero+One" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rancho&effect=3d-float|3d">
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+    <style>
+        #div1,
+        #div2,
+        #div3,
+        #div2>div {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        .fixed {
+            position: fixed;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1" class="container-fluid" style="height:100vh;width:100vw;background-color:rgba(0,0,0,0.5);"></div>
+    <div id="div2" class="container-fluid" style="top:0;">
+        <div style="height:100vh;width:100vw;background-color:royalblue;position:absolute;left:0vw;"></div>
+        <div style="height:100vh;width:100vw;background-color:dodgerblue;position:absolute;left:100vw;"></div>
+        <div style="height:100vh;width:100vw;background-color:deepskyblue;position:absolute;left:200vw;"></div>
+    </div>
+    <div id="div3" class="container-fluid" style="height:200vh;width:100vw;background:rgba(0,0,0,0.5);">
+    </div>
+    <div id="div4" class="container-fluid" style="height:100vh;width:100vw;background-color:rgba(0,255,0,0.3);z-index:10;position:absolute"></div>
+
+    <script>
+        $(document).ready(function() {
+
+            $(window).scroll(function() {
+                var winh = $(window).height();
+                var doch = $(document).height() - winh;
+                var div2_pos = $("#div2").offset().top;
+                var div3_pos = $("#div3").offset().top;
+                var div4_pos = $("#div4").offset().top;
+                var div3h = $("#div3").height();
+                var scrolled = $(window).scrollTop();
+
+                if (scrolled > div3_pos) {
+                    $('#div2').addClass('fixed');
+                    if(scrolled < div4_pos - winh){
+                        $("#div2").css('transform', "translate(" + (0 - (scrolled - div3_pos) / div3h * 200) + "vw)");
+                    }
+                } else {
+                    $('#div2').removeClass('fixed');
+                }
+                console.log("scrolled:" + scrolled + "\tdiv2:" + $("#div2").position().top + "\tdiv3:" + $("#div3").position().top + "\tdiv4:" + $("#div4").offset().top)
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

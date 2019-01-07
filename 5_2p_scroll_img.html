@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <meta charset="utf-8">
+    <style>
+        body {
+            height: 6400px;
+            margin: 0;
+        }
+
+        #animation {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            height: 100%;
+/*            margin: 0 auto;*/
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="container-fluid">
+        <img id="animation" src="assets/snoopy6.jpg" />
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            var doch = $(document).height();
+            var winh = $(window).height();
+            console.log("doch/winh: " + doch + "/" + winh);
+            var nimgs = 8;
+            var scrollheight = (doch - winh) / nimgs;
+            var arr = [];
+            var srcs = [];
+            for (var i = 0; i < nimgs; i++) {
+                arr.push((i + 1) * scrollheight);
+                srcs.push("assets/snoopy" + (i + 1) + ".jpg");
+            }
+            console.log(arr);
+
+            $(window).scroll(function() {
+                var scroll_position = $(document).scrollTop();
+                for (i = 0; i < arr.length - 1; i++) {
+                    if (arr[i] < scroll_position && arr[i + 1] > scroll_position) {
+                        console.log(srcs[i]);
+                        $('#animation').attr("src", srcs[i]);
+                    }
+                }
+
+            });
+        });
+    </script>
+</body>
+
+</html>

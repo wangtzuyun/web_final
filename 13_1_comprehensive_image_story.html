@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <style>
+        .dark {
+            opacity: 0.1;
+        }
+
+        .scrollin {
+            animation: myfadin 2s;
+
+        }
+
+        .scrollout {
+            animation: myfadout 5s;
+
+        }
+
+        @keyframes myfadin {
+            0% {
+                opacity: 0.1;
+            }
+            25% {
+                opacity: 0.8;
+            }
+            75% {
+                opacity: 0.95;
+            }
+            100% {
+                opacity: 1.0;
+            }
+        }
+
+        @keyframes myfadout {
+            0% {
+                opacity: 1.0;
+            }
+            25% {
+                opacity: 0.5;
+            }
+            75% {
+                opacity: 0.25;
+            }
+            100% {
+                opacity: 0.1;
+            }
+        }
+
+        .container {
+            color: white;
+            background-color: dimgray;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container" style="height:1000px;background-color:dimgray;"></div>
+
+    <div class="container text-center slideanimate">
+        <h2>section1</h2><img src="assets/snoopy1.jpg" class="img-rounded img-thumbnail img-responsive dark" style="width:50%"></div>
+    <div class="container text-center slideanimate">
+        <h2>section2</h2><img src="assets/snoopy2.jpg" class="img-rounded img-thumbnail img-responsive dark" style="width:50%"></div>
+    <div class="container text-center slideanimate">
+        <h2>section3</h2><img src="assets/snoopy3.jpg" class="img-rounded img-thumbnail img-responsive dark" style="width:50%"></div>
+    <div class="container text-center slideanimate">
+        <h2>section4</h2><img src="assets/snoopy4.jpg" class="img-rounded img-thumbnail img-responsive dark" style="width:50%"></div>
+    <div class="container text-center slideanimate">
+        <h2>section5</h2><img src="assets/snoopy5.jpg" class="img-rounded img-thumbnail img-responsive dark" style="width:50%"></div>
+    <div class="container text-center slideanimate">
+        <h2>section6</h2><img src="assets/snoopy6.jpg" class="img-rounded img-thumbnail img-responsive dark" style="width:50%"></div>
+
+    <div class="container" style="height:1000px;background-color:dimgray;"></div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+
+
+    <script>
+        $(function() {
+            $(window).scroll(function() {
+                $(".slideanimate").each(function() {
+                    var scroll = $(window).scrollTop();
+                    var winheight = $(window).height();
+                    var pos = $(this).position().top;
+                    if (pos - winheight * 0.5 <= scroll && scroll < pos + winheight * 0.2) {
+                        //                        $(this).find("img").removeClass("dark");
+                        $(this).find("img").addClass("scrollin");
+                        $(this).find("img").removeClass("scrollout");
+                    } else {
+                        $(this).find("img").removeClass("scrollin");
+                        $(this).find("img").addClass("scrollout");
+
+                    }
+
+
+                    //                    else
+                    //                    {
+                    //                        $(this).find("img").addClass("dark");
+                    //                        $(this).find("img").removeClass("scrollin");
+                    //                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

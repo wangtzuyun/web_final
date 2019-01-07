@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        #first {
+            background-image: url("assets/123.png");
+            min-height: 800px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #second {
+            background-image: url("assets/123_2.png");
+            min-height: 400px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #first .row {
+            min-height: 300px;
+            background-color: rgba(0, 0, 255, 0.5);
+        }
+
+        #first .row div:last-child {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+
+        }
+
+
+
+        #second .row {
+            min-height: inherit;
+
+        }
+
+
+        #second .row div:last-child {
+            min-height: inherit;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="first" class="container-fluid">
+        <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+                <h1>Section 1</h1>
+            </div>
+        </div>
+    </div>
+    <div id="second" class="container-fluid">
+        <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+                <h1>Section 2</h1>
+            </div>
+        </div>
+    </div>
+    <div style="height:1000px;background-color:black;"></div>
+
+</body>
+
+</html>

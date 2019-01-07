@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>8_1_parallax_basic</title>
+
+    <style>
+        img {
+            width: 10%;
+            position: absolute;
+        }
+    </style>
+
+</head>
+
+<body>
+
+        <div class="container-fluid" style="background-color:beige;min-height: 1000px">
+        <img id="b1" src="assets/ballon1.png" style="left:15%;top:100px">
+        <img id="b2" src="assets/ballon2.png" style="left:25%;top:150px;">
+        <img id="b3" src="assets/ballon3.png" style="left:35%;top:200px;">
+        <img id="b4" src="assets/ballon4.png" style="left:45%;top:250px;">
+        <img id="b5" src="assets/ballon5.png" style="left:55%;top:300px;">
+        <img id="b6" src="assets/ballon6.png" style="left:65%;top:350px;">
+    </div>
+    <div class="container-fluid" style="background-color:darkgrey;min-height: 2000px"></div>
+
+    
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            $(window).scroll(function() {
+                var winh = $(window).height();
+                var winw = $(window).width();
+                var scrolled = $(window).scrollTop();
+                $("#b1").css('top', (100 + scrolled * 1) + 'px');
+                $("#b2").css('top', (150 + scrolled * .9) + 'px');
+                $("#b3").css('top', (200 + scrolled * .8) + 'px');
+                $("#b4").css('top', (250 + scrolled * .7) + 'px');
+                $("#b5").css('top', (300 + scrolled * .6) + 'px');
+                $("#b6").css('top', (350 + scrolled * .5) + 'px');
+            });
+        });
+    </script>
+</body>
+
+</html>

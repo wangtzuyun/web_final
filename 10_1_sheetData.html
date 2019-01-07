@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="sheetData.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <!-- Load jQuery and Sheetrock from CDNJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
+
+    <style>
+        .jumbotron {
+            background-color: coral;
+        }
+
+        .iframe-container {
+            /*    position: relative;*/
+            width: 60%;
+            height: 0;
+            padding-bottom: 30%;
+            frameborder=0;
+        }
+
+        .iframe-table {
+            /*    position: absolute;*/
+            top: 0;
+            left: 0;
+            width: 80%;
+            height: 80%;
+            min-height: 500px;
+        }
+    </style>
+
+    <!-- self-defined js -->
+
+</head>
+
+<body>
+    <div class="jumbotron text-center">
+        <h2 class="enjoy-css">Data Practice</h2>
+    </div>
+
+    <div id="table1" class="container">
+        <h2>Table 1</h2>
+        <iframe src="https://docs.google.com/spreadsheets/d/1j3b2bfNcdnDaYnx-Oh_Xx5QO7NRZkMTSIWrQs3MOYgY/edit?usp=sharing" class="iframe-table"></iframe>
+    </div>
+
+    <div id="table2" class="container">
+        <h2>Table 2</h2>
+        <table id="mytable" class="table table-hover table-bordered table-striped"></table>
+    </div>
+
+
+    <script>
+        var mygoogleSpreadsheet = "https://docs.google.com/spreadsheets/d/1j3b2bfNcdnDaYnx-Oh_Xx5QO7NRZkMTSIWrQs3MOYgY/edit#gid=0"
+        $("#mytable").sheetrock({
+            url: mygoogleSpreadsheet,
+            query: "select A,B,C,D,E",
+            fetchSize: 10
+        });
+    </script>
+
+</body>
+
+</html>

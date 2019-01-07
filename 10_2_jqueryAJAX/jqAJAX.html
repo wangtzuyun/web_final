@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rancho|Archivo-Black|Passero+One&effect=emboss">
+    <link rel="stylesheet" href="jqAJAX.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="jqAJAX.js"></script>
+</head>
+
+
+
+
+<body id="myPage">
+    <div class="jumbotron text-center">
+        <h1 class="font-effect-emboss">jQuery for AJAX</h1>
+    </div>
+
+
+    <!-------------------------------------------------------------------------------------->
+    <!-- introduciton -->
+    <div id="tofix2" class="container-fluid text-center" style="background-color:coral;width:100%;min-height:50px;">
+        <ul>
+            <li id="hidetable">Hide all table</li>
+            <li><a href="#myPage">back to top</a></li>
+        </ul>
+    </div>
+
+    <!-------------------------------------------------------------------------------------->
+    <!--Testing for jquery I-->
+    <div id="ajax" class="container">
+        <p class="button" onclick="loadDoc()">loadDoc() to test AJAX (1)</p>
+        <div id="ajaxtest">Original Content</div>
+
+        <p class="button" onclick="loadJSON()">loadjson() to laod json by AJAX</p>
+        <div id="jsontest">Original Content</div>
+
+        <p class="button">Following table is loaded automatically by jquery getJSON()</p>
+        <div id="jsontest2"></div>
+
+
+    </div>
+
+    <!--Testing for jquery II-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--FOOTER section-->
+    <footer class="container text-center">
+        <a href="#myPage" title="back to top">
+            <span class="glyphicon glyphicon-triangle-top"></span>
+        </a>
+        <p class="font-effect-3d">back to top</p>
+    </footer>
+</body>
+
+</html>

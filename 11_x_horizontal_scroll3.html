@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Hello, world!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Passero+One" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rancho&effect=3d-float|3d">
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+    <style>
+        div,
+        #div1,
+        .jumbotron {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .fixed {
+            position: fixed;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="banner" class="container-fluid" style="height:500px;;width:100%;background-color: black;z-index:2;"></div>
+    <div id="div1" class="container-fluid" style="height:50%;transform:translate(0%);top:0;z-index:1;">
+        <div style="height:100%;width:100%;background-color:red;top:0;position:absolute"></div>
+        <div style="height:100%;width:100%;background-color:orangered;position:absolute;top:0;left:100%;"></div>
+        <div style="height:100%;width:100%;background-color:yellow;position:absolute;top:0;left:200%;"></div>
+    </div>
+    <div class="container-fluid" style="height:2000px;width:100%;background: linear-gradient(red, yellow);;z-index:-1;">
+    </div>
+
+
+    <script>
+        $(document).ready(function() {
+            $(window).scroll(function() {
+                var winh = $(window).height();
+                var doch = $(document).height() - winh;
+                //        var divw = $("#div1").width();
+                //        var winw = $(window).width();
+                var bannerh = $("#banner").height();
+                var scrolled = $(window).scrollTop();
+
+                if (scrolled > bannerh) {
+                    $('#div1').addClass('fixed');
+                    $("#div1").css('transform', "translate(" + (0 - (scrolled - bannerh) / (doch - bannerh) * 200) + "%)");
+                } else {
+                    $('#div1').removeClass('fixed');
+                }
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

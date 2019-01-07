@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Hello, world!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Passero+One" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rancho&effect=3d-float|3d">
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+    <style>
+        div,
+        #div1 {
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="div1" class="container-fluid" style="position:fixed;height:100vh;transform:translate(100vw);z-index:1;"><img src="assets/img4000x1000.jpg" style="height:100vh">
+    </div>
+    <div id="div2" class="container-fluid" style="height:4000px;width:100%;background: linear-gradient(red, yellow);z-index:-1;">
+    </div>
+        <div id="div3" class="container-fluid" style="position:fixed;height:100vh;transform:translate(100vw);z-index:1;"><img src="assets/img4000x1000_2.jpg" style="height:100vh">
+    </div>
+    <div id="div4" class="container-fluid" style="height:4000px;width:100%;background: linear-gradient(red, yellow);z-index:-1;">
+    </div>
+
+
+    <script>
+        $(document).ready(function() {
+            var imgw = $("#div1 img").width();
+            var winw = $(window).width();
+            var div2h = $("#div2").offset().bottom - $(window).height();;
+            $(window).scroll(function() {
+                var scrolled = $(window).scrollTop();
+                $("#div1").css('transform', "translate(" + (winw - scrolled / div2h * imgw) + "px)");
+                if(scrolled > div2h){
+                    $("div1").removeAttr
+                    
+                    
+                }
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

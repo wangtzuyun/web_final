@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>9_1_mapbox testing</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #map {
+            position: fixed;
+            width: 50%;
+        }
+
+        #features {
+            width: 50%;
+            margin-left: 50%;
+            font-family: sans-serif;
+            overflow-y: scroll;
+            background-color: #fafafa;
+        }
+
+        section {
+            padding: 50px 50px;
+            line-height: 25px;
+            border-bottom: 1px solid #ddd;
+            opacity: 0.25;
+            font-size: 13px;
+        }
+
+        section.active {
+            opacity: 1;
+        }
+
+        section:last-child {
+            border-bottom: none;
+            margin-bottom: 200px;
+        }
+
+        .space {
+            min-height: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='map'></div>
+    <div id='features'>
+        <section id='circle_1' class='active'>
+            <h3>東門圓環->羅斯福路直行</h3>
+            <p>November 1895. London is shrouded in fog and Sherlock Holmes and Watson pass time restlessly awaiting a new case. "The London criminal is certainly a dull fellow," Sherlock bemoans. "There have been numerous petty thefts," Watson offers in response. Just then a telegram arrives from Sherlock's brother Mycroft with a mysterious case.</p>
+        </section>
+        <section id='QDER_2'>
+            <h3>青島東路->右轉</h3>
+            <p>Arthur Cadogan West was found dead, head crushed in on train tracks at Aldgate Station at 6AM Tuesday morning. West worked at Woolwich Arsenal on the Bruce-Partington submarine, a secret military project. Plans for the submarine had been stolen and seven of the ten missing papers were found in West's possession. Mycroft implores Sherlock to take the case and recover the three missing papers.</p>
+        </section>
+        <section id='LSSR_3'>
+            <h3>林森南路口->左轉</h3>
+            <p>Holmes and Watson's investigations take them across London. Sherlock deduces that West was murdered elsewhere, then moved to Aldgate Station to create the illusion that he was crushed on the tracks by a train. On their way to Woolwich Sherlock dispatches a telegram to Mycroft at London Bridge: "Send list of all foreign spies known to be in England, with full address."</p>
+        </section>
+        <section id='ZXER_4'>
+            <h3>忠孝東路->右轉</h3>
+            <p>While investigating at Woolwich Arsenal Sherlock learns that West did not have the three keys&mdash;door, office, and safe&mdash;necessary to steal the papers. The train station clerk mentions seeing an agitated West boarding the 8:15 train to London Bridge. Sherlock suspects West of following someone who had access to the Woolwich chief's keyring with all three keys.</p>
+        </section>
+        <section id='SSSR_5'>
+            <h3>新生南路->右轉</h3>
+            <p>Mycroft responds to Sherlock's telegram and mentions several spies. Hugo Oberstein of 13 Caulfield Gardens catches Sherlock's eye. He heads to the nearby Gloucester Road station to investigate and learns that the windows of Caulfield Gardens open over rail tracks where trains stop frequently.</p>
+        </section>
+        <section id='RIR_6'>
+            <h3>仁愛路->右轉</h3>
+            <p>Holmes deduces that the murderer placed West atop a stopped train at Caulfield Gardens. The train traveled to Aldgate Station before West's body finally toppled off. Backtracking to the criminal's apartment, Holmes finds a series of classified ads from <em>The Daily Telegraph</em> stashed away. All are under the name Pierrot: "Monday night after nine. Two taps. Only ourselves. Do not be so suspicious. Payment in hard cash when goods delivered."</p>
+        </section>
+        <section id='circle_7'>
+            <h3>直行至東門圓環</h3>
+            <p>Holmes and Watson head to The Daily Telegraph and place an ad to draw out the criminal. It reads: "To-night. Same hour. Same place. Two taps. Most vitally important. Your own safety at stake. Pierrot." The trap works and Holmes catches the criminal: Colonel Valentine Walter, the brother of Woolwich Arsenal's chief. He confesses to working for Hugo Oberstein to obtain the submarine plans in order to pay off his debts.</p>
+        </section>
+        <section id='end_8'>
+            <h3>凱道會師</h3>
+            <p>Walter writes to Oberstein and convinces him to meet in the smoking room of the Charing Cross Hotel where he promises additional plans for the submarine in exchange for money. The plan works and Holmes and Watson catch both criminals.</p>
+        </section>
+        <div class="space"></div>
+        <div class="space"></div>
+    </div>
+    <script src="map.js"></script>
+</body>
+
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiamlybG9uZyIsImEiOiJjaXZzNmxtNnEwNDRyMnRxcnhlMWd2eWIzIn0.colQOdSaL2thS6DSM6WsZg';
+
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/jirlong/civs6or6f006y2jrzh4nt17y1',
+        center: [121.517373, 25.039144],
+        zoom: 20.05,
+        bearing: 101.60,
+        pitch: 50.00
+    });
+
+    map.on('load', function() {
+        map.addLayer({
+            'id': '3d-buildings',
+            'source': 'composite',
+            'source-layer': 'building',
+            'filter': ['==', 'extrude', 'true'],
+            'type': 'fill-extrusion',
+            'minzoom': 20,
+            'paint': {
+                'fill-extrusion-color': '#aaa',
+                'fill-extrusion-height': {
+                    'type': 'identity',
+                    'property': 'height'
+                },
+                'fill-extrusion-base': {
+                    'type': 'identity',
+                    'property': 'min_height'
+                },
+                'fill-extrusion-opacity': .6
+            }
+        });
+        map.addSource("route", {
+            "type": "geojson",
+            "data": {
+                "type": "Feature",
+                "properties": {},
+                "geometry": {
+                    "type": "LineString",
+                    "coordinates": [
+                        [
+                            121.51717901229858,
+                            25.03916302063388
+                        ],
+                        [
+                            121.51745796203613,
+                            25.039415754053685
+                        ],
+                        [
+                            121.51780128479002,
+                            25.039532400071796
+                        ],
+                        [
+                            121.51923894882202,
+                            25.0445869542914
+                        ],
+                        [
+                            121.52297258377075,
+                            25.043614940813328
+                        ],
+                        [
+                            121.52331590652464,
+                            25.044859116684524
+                        ],
+                        [
+                            121.53284311294556,
+                            25.04229299011858
+                        ],
+                        [
+                            121.53275728225708,
+                            25.038229846572555
+                        ],
+                        [
+                            121.52522563934326,
+                            25.03834649371849
+                        ],
+                        [
+                            121.51801586151123,
+                            25.039260225856985
+                        ],
+                        [
+                            121.51808023452757,
+                            25.03892972778415
+                        ],
+                        [
+                            121.51780128479002,
+                            25.038638111097974
+                        ],
+                        [
+                            121.5174150466919,
+                            25.038657552231978
+                        ],
+                        [
+                            121.51720046997069,
+                            25.03894916887192
+                        ]
+                    ]
+                }
+            }
+        });
+
+
+
+        map.addLayer({
+            "id": "maine",
+            "type": "line",
+            "source": "route",
+            "layout": {
+                "line-join": "round",
+                "line-cap": "round"
+            },
+            "paint": {
+                "line-color": "#888",
+                "line-width": 8
+            }
+        });
+
+    });
+
+
+
+    var chapters = {
+        'circle_1': {
+            center: [121.517750, 25.039535],
+            bearing: 12,
+            zoom: 20,
+            pitch: 50.00
+        },
+        'QDER_2': {
+            center: [121.519380, 25.044406],
+            duration: 6000,
+            bearing: 12.00,
+            zoom: 20,
+            pitch: 50.00
+        },
+        'LSSR_3': {
+            center: [121.522951, 25.043643],
+            bearing: 101.60,
+            zoom: 20,
+            speed: 0.6,
+            pitch: 50.00
+        },
+        'ZXER_4': {
+            center: [121.523297, 25.044810],
+            bearing: 9.60,
+            zoom: 20,
+            pitch: 50.00
+        },
+        'SSSR_5': {
+            center: [121.529881, 25.043076],
+            bearing: 107.20,
+            zoom: 20,
+            curve: 1,
+            pitch: 60.00,
+            speed: 0.5
+        },
+        'RIR_6': {
+            center: [121.528377, 25.038232],
+            bearing: -169.44,
+            zoom: 20,
+            curve: 0.5,
+            pitch: 60.00
+        },
+        'circle_7': {
+            center: [121.518010, 25.039133],
+            bearing: -110.40,
+            zoom: 20,
+            curve: 0.5,
+            pitch: 60
+        },
+        'end_8': {
+            center: [121.517227, 25.039141],
+            bearing: -71.22,
+            zoom: 20,
+            curve: 0.5,
+            pitch: 60.00
+        }
+    };
+
+    // On every scroll event, check which element is on screen
+    window.onscroll = function() {
+        var chapterNames = Object.keys(chapters);
+        for (var i = 0; i < chapterNames.length; i++) {
+            var chapterName = chapterNames[i];
+            if (isElementOnScreen(chapterName)) {
+                setActiveChapter(chapterName);
+                break;
+            }
+        }
+    };
+
+    var activeChapterName = 'baker';
+
+    function setActiveChapter(chapterName) {
+        if (chapterName === activeChapterName) return;
+
+        map.flyTo(chapters[chapterName]);
+
+        document.getElementById(chapterName).setAttribute('class', 'active');
+        document.getElementById(activeChapterName).setAttribute('class', '');
+
+        activeChapterName = chapterName;
+    }
+
+    function isElementOnScreen(id) {
+        var element = document.getElementById(id);
+        var bounds = element.getBoundingClientRect();
+        return bounds.top < window.innerHeight && bounds.bottom > 0;
+    }
+</script>
+
+</html>

@@ -1,0 +1,52 @@
+/*Practice: fixed lef #nav panel*/
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#banner {
+    width: 800px;
+    height: 100px;
+    background-color: coral;
+    clear:both;
+    position:fixed;
+}
+#nav {
+    width: 150px;
+    height: 200px;
+    background-color:yellow;
+/*    float:left;*/
+    margin-left: -160px;
+    position:fixed;
+}
+#content {
+    width: 800px;
+    background-color:azure;
+    float:left;
+}
+
+#footer {
+    width: 800px;
+    height: 50px;
+    background-color:darkgoldenrod;
+    clear:both;
+}
+
+
+#content, #nav, #supporting{
+    margin-top: 100px;
+}
+/*
+#content{
+    margin-left: 100px;
+}
+*/
+
+#wrapper {
+    width: 800px;
+    margin: auto;
+}
+.container {
+    padding: 10px;
+}

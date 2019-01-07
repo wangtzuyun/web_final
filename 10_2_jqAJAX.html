@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rancho|Archivo-Black|Passero+One&effect=emboss">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        h2{
+            background-color: lightgrey; 
+            padding:5px;
+        }
+    </style>
+    
+    </head>
+
+
+
+
+<body>
+
+
+    <div class="container-fluid text-center" style="background-color:coral;min-height:250px;">
+        <h1>jQuery for AJAX</h1>
+    </div>
+
+
+
+    <div id="ajax" class="container">
+        <h2 onclick="loadDoc()">Click here to run loadDoc()</h2>
+        <div id="ajaxtest">Original Content</div>
+
+        <h2 onclick="loadJSON()">Click here to run loadjson()</h2>
+        <div id="jsontest">Original Content</div>
+
+        <h2>The table is loaded automatically by jquery getJSON()</h2>
+        <div id="jsontest2"></div>
+
+
+    </div>
+
+
+    <footer class="container-fluid" style="min-height:500px;background-color:gainsboro;"></footer>
+
+    <script>
+        $(document).ready(function() {
+
+            //    assets/uv.json
+            $.getJSON("data/uv.json", function(result) {
+
+                var items = []
+                $.each(result, function(i, data) {
+                    items.push("<tr><td>" + data['SiteName'] +
+                        "</td><td>" + data['UVI'] +
+                        "</td><td>" + data['County'] + "</td></tr>");
+                });
+
+                $("<table />", {
+                    'class': "table table-condensed",
+                    html: items.join("")
+                }).appendTo("#jsontest2")
+
+            });
+
+        });
+
+        var obj = JSON.parse("data/uv.json");
+        console.log(obj);
+
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("ajaxtest").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "data/toload.txt", true);
+            xhttp.send();
+        }
+
+
+        function loadJSON() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var obj = JSON.parse(this.responseText);
+                    var out = "<table class='table table-condensed'><thead><tr><th>SiteName</th><th>UVI</th><th>County</th></tr></thead><tbody>";
+
+                    for (var i = 0; i < obj.length / 2; i++) {
+                        out += "<tr><td>" + obj[i]['SiteName'] +
+                            "</td><td>" + obj[i]['UVI'] +
+                            "</td><td>" + obj[i]['County'];
+                    }
+                    out += "</td></tr></tbody></table>"
+                    document.getElementById("jsontest").innerHTML = out;
+                }
+            };
+            xhttp.open("GET", "data/uv.json", true);
+            xhttp.send();
+        }
+    </script>
+</body>
+
+</html>

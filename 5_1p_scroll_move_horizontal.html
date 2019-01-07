@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rancho|Archivo-Black|Passero+One&effect=emboss">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .jumbotron {
+            margin-bottom: 0px;
+        }
+        
+        #tofix1.fixed {
+            position: fixed;
+            z-index: 99;
+            top: 0;
+        }
+        
+        #tofix2.fixed {
+            position: fixed;
+            z-index: 99;
+            top: 50px;
+        }
+        
+        #tofix3.fixed {
+            position: fixed;
+            z-index: 99;
+            top: 100px;
+        }
+        
+        #tofix4.fixed {
+            position: fixed;
+            z-index: 99;
+            top: 150px;
+        }
+        #tofix5.fixed {
+            position: fixed;
+            z-index: 99;
+            top: 200px;
+        }
+        #tofix6.fixed {
+            position: fixed;
+            z-index: 99;
+            top: 250px;
+        }
+
+        
+        
+        .movingblock {
+            position: absolute;
+            height: 50px;
+            width: 50px;
+            background-color: black;
+        }
+        
+        #moved11,
+        #moved21,
+        #moved31,
+        #moved41,
+        #moved51,
+        #moved61{
+            left: 0px;
+        }
+        
+        #moved12,
+        #moved22,
+        #moved32,
+        #moved42,
+        #moved52,
+        #moved62{
+            right: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron text-center">
+        <h1 class="font-effect-emboss">6_1 practice: moving block horizontally</h1>
+    </div>
+
+
+
+    <div id="tofix1" class="container-fluid text-center" style="background-color:#CCC;width:100%;min-height:50px;">
+        <div id="moved11" class="movingblock"></div>
+        <div id="moved12" class="movingblock"></div>
+    </div>
+    <div class="container-fluid" style="min-height:1000px;"></div>
+
+
+    <div id="tofix2" class="container-fluid" style="background-color:#AAA;width:100%;min-height:50px;">
+        <div id="moved21" class="movingblock"></div>
+        <div id="moved22" class="movingblock"></div>
+    </div>
+    <div class="container-fluid" style="min-height:1000px;"></div>
+
+
+    <div id="tofix3" class="container-fluid" style="background-color:#888;width:100%;min-height:50px;">
+        <div id="moved31" class="movingblock"></div>
+        <div id="moved32" class="movingblock"></div>
+    </div>
+    <div class="container-fluid" style="min-height:1000px;"></div>
+
+
+    <div id="tofix4" class="container-fluid" style="background-color:#666;width:100%;min-height:50px;">
+        <div id="moved41" class="movingblock"></div>
+        <div id="moved42" class="movingblock"></div>
+    </div>
+    <div class="container-fluid" style="min-height:1000px;"></div>
+
+    <div id="tofix5" class="container-fluid" style="background-color:#444;width:100%;min-height:50px;">
+        <div id="moved51" class="movingblock"></div>
+        <div id="moved52" class="movingblock"></div>
+    </div>
+    <div class="container-fluid" style="min-height:1000px;"></div>
+
+    <div id="tofix6" class="container-fluid" style="background-color:#333;width:100%;min-height:50px;">
+        <div id="moved61" class="movingblock"></div>
+        <div id="moved62" class="movingblock"></div>
+    </div>
+    <div class="container-fluid" style="min-height:1000px;"></div>
+
+
+    <!--FOOTER section-->
+    <script>
+        $(function() {
+
+            $(document).ready(function() {
+
+                var tofix1_height = $('#tofix1').position().top; //Reserve the original height
+                var tofix2_height = $('#tofix2').position().top; //Reserve the original height
+                var tofix3_height = $('#tofix3').position().top; //Reserve the original height
+                var tofix4_height = $('#tofix4').position().top; //Reserve the original height
+                var tofix5_height = $('#tofix5').position().top; //Reserve the original height
+                var tofix6_height = $('#tofix6').position().top; //Reserve the original height
+
+
+                $(window).scroll(function() {
+                    var document_height = $(document).height() - $(window).height();
+                    var window_width = ($(window).width() - $('#moved11').width()) / 2;
+                    var scroll_position = $(window).scrollTop(); //current position
+                    console.log(scroll_position);
+
+                    if (scroll_position >= tofix1_height) {
+                        $('#tofix1').addClass('fixed');
+                    } else {
+                        $('#tofix1').removeClass('fixed');
+                    }
+
+                    if (scroll_position >= tofix2_height - 100) {
+                        $('#tofix2').addClass('fixed');
+                    } else {
+                        $('#tofix2').removeClass('fixed');
+                    }
+                    if (scroll_position >= tofix3_height - 200) {
+                        $('#tofix3').addClass('fixed');
+                    } else {
+                        $('#tofix3').removeClass('fixed');
+                    }
+                    if (scroll_position >= tofix4_height - 300) {
+                        $('#tofix4').addClass('fixed');
+                    } else {
+                        $('#tofix4').removeClass('fixed');
+                    }
+                    if (scroll_position >= tofix5_height - 400) {
+                        $('#tofix5').addClass('fixed');
+                    } else {
+                        $('#tofix5').removeClass('fixed');
+                    }
+
+                    if (scroll_position >= tofix6_height - 500) {
+                        $('#tofix6').addClass('fixed');
+                    } else {
+                        $('#tofix6').removeClass('fixed');
+                    }
+
+
+                    var target_position = scroll_position / document_height * window_width;
+                    $('#moved11').css({
+                        'left': target_position
+                    });
+                    $('#moved12').css({
+                        'right': target_position
+                    });
+                    $('#moved21').css({
+                        'left': target_position - 50
+                    });
+                    $('#moved22').css({
+                        'right': target_position - 50
+                    });
+                    $('#moved31').css({
+                        'left': target_position - 100
+                    });
+                    $('#moved32').css({
+                        'right': target_position - 100
+                    });
+                    $('#moved41').css({
+                        'left': target_position - 150
+                    });
+                    $('#moved42').css({
+                        'right': target_position - 150
+                    });
+                    $('#moved51').css({
+                        'left': target_position - 200
+                    });
+                    $('#moved52').css({
+                        'right': target_position - 200
+                    });
+                    $('#moved61').css({
+                        'left': target_position - 250
+                    });
+                    $('#moved62').css({
+                        'right': target_position - 250
+                    });
+
+
+                });
+            });
+
+        });
+    </script>
+</body>
+
+</html>

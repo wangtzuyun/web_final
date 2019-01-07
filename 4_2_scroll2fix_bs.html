@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="5_1_scroll2fix_bs.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .affix {
+            top: 0px;
+            z-index: 10;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container-fluid" style="background-color:dodgerblue;color:#fff;height:200px;">
+        <h3>Bootstrap Affix, height:200px</h3>
+    </div>
+
+    <div id="tofix" class="container-fluid" style="background-color:coral;color:white;width:100%;height:50px">
+        <h3>div#tofix width:100%; height:50px;</h3>
+    </div>
+
+    <footer class="container-fluid" style="background-color:gray;color:white;width:100%;height:1000px">
+        <h3>div height:1000px</h3>
+    </footer>
+
+
+    <script>
+        $(document).ready(function() {
+            $('#tofix').affix({
+                offset: {
+                    // top: 200
+                    top: ($('#tofix').position().top)
+                }
+            });
+        });
+
+        $(window).scroll(function() {
+            console.log($('#tofix').position().top)
+        });
+    </script>
+
+</body>
+
+</html>

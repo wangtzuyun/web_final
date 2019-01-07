@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    <style>
+        #statusbar {
+            position: absolute;
+            left: 0;
+            height: 50px;
+            width: 0;
+            background-color: coral;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid" style="background-color:deepskyblue;min-height:200px;">
+        <h1>affix by jquery: min-hight: 200px</h1>
+    </div>
+
+    <div id="tofix1" class="container-fluid sticky-top" style="background-color:rgb(64,64,64);min-height:50px;">
+        <div id="statusbar"></div>
+    </div>
+
+    <div class="container-fluid" style="min-height:1000px;">
+        <h1>Space: min-height:1000px</h1>
+    </div>
+
+    <div class="container-fluid" style="min-height:1000px;background-color:lightgray;">
+        <h1>div containing circle: min-height:1000px</h1>
+        <svg id="tofix2" class="sticky-top" width="250" height="250">
+        <circle cx="100" cy="100" r="100" fill="coral" />
+    </svg>
+
+    </div>
+    <div class="container-fluid" style="min-height:1000px;">
+        <h1>Space: min-height:1000px</h1>
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            var tofix1_height = $('#tofix1').offset().top; //Reserve the original height
+            var tofix2_height = $('#tofix2').offset().top; //Reserve the original height
+
+            $(window).scroll(function() {
+                var max_scroll = $(document).height() - $(window).height();
+                var win_w = $(window).width();
+                var current_pos = $(window).scrollTop();
+                console.log(current_pos);
+
+                var new_width = win_w * current_pos / max_scroll;
+                $('#statusbar').css({
+                    'width': new_width
+                });
+
+            });
+        });
+    </script>
+</body>
+
+</html>

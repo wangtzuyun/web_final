@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>11_5_Scrolling with velocity</title>
+    <style>
+        .fix {
+            position: fixed
+        }
+    </style>
+</head>
+
+<body>
+    
+        <div style="min-height:100vh;background-image: url('assets/obama2.jpg');background-repeat: no-repeat;
+    background-attachment: fixed;background-position:center;background-size:cover;">
+        <div style="min-height: inherit;background-color:rgba(36, 47, 82, 0.6);"></div>
+    </div>
+    <div id="div1" style="height:100vh;">
+        <img id="img1_1" src="assets/img4000x1000_2.jpg" data-speed=1.6 style="position:absolute;height:100vh;transition:transform 0.5s">
+        <img id="img1_2" src="assets/glass.png" data-speed=1.4 style="position:absolute;width:100vw;transition:transform 0.5s">
+    </div>
+    
+    <div id="div2" style="min-height:6000px;width:100%;background-image: url('assets/obama1.jpg');background-repeat: no-repeat;
+    background-attachment:fixed;background-position:center;background-size:cover;">   
+        
+        <div style="min-height: inherit;background-color:rgba(82, 47, 36, 0.6);"></div>
+        <img id="img2_1" src="assets/obama3.jpg" data-speed=0.2 style="position:absolute;height:100vh;transform:translate(50vw);transition:transform 0.5s">
+    </div>
+    
+    <div id="div3" style="height:4000px;width:100%;background-image: url('assets/obama2.jpg');background-repeat: no-repeat;
+    background-attachment: fixed;background-position:center;background-size:cover;">
+        
+    </div>
+    
+    
+<!--    <div id="#div4" style="min-height:4000px;background:linear-gradient(red, yellow)"></div>-->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.5/velocity.min.js"></script>-->
+    <script src="js/jquery.transit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+    <script>
+        $(document).ready(function() {
+            var winw = $(window).width(),
+                winh = $(window).height();
+            var doch = $(document).height() - winh;
+            var div2top = $("#div2").offset().top,
+                div3top = $("#div3").offset().top;
+
+            $(window).scroll(function() {
+                var scrolled = $(window).scrollTop();   
+                var update1_1 = -scrolled / doch * $("#img1_1").width() * $("#img1_1").data("speed"),
+                    update1_2 = scrolled / doch * $("#img1_2").width() * $("#img1_2").data("speed");
+                console.log(update1_1 + "_" + update1_2);
+                $("#img1_1").css({translate: update1_1 + "px"}, 300);
+                $("#img1_2").css({translate: update1_2 + "px"}, 300);
+            
+//                $("#img1_1").velocity({scale:1.1, 
+//                                       translateX: update1_1}, 300);
+//                $("#img1_2").velocity({scale:1.1, 
+//                                       translateX: update1_2}, 300);
+                
+                
+                
+                if(div2top < scrolled && scrolled < div3top - winh){
+                    var update2_1 = (100 - (scrolled-div2top) / $("#div2").height() * 100);
+                    $("#img2_1").css('transform', "translate(" +  update2_1 + "vw)");
+                    $("#img2_1").css('top', scrolled + "px");
+                }
+
+            });
+        });
+    </script>
+</body>
+
+
+
+</html>

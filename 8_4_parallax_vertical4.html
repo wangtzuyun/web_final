@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Parallax vertical</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+
+    <style>
+        img {
+            width: 10%;
+            position: absolute;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="container-fluid" style="background-color:beige;min-height: 1000px">
+        <img class="parallax" src="assets/ballon1.png" data-pos="100" data-speed="1" style="left:15%;top:100px">
+        <img class="parallax" src="assets/ballon2.png" data-pos="150" data-speed=".9" style="left:25%;top:150px;">
+        <img class="parallax" src="assets/ballon3.png" data-pos="200" data-speed=".8" style="left:35%;top:200px;">
+        <img class="parallax" src="assets/ballon4.png" data-pos="250" data-speed=".7" style="left:45%;top:250px;">
+        <img class="parallax" src="assets/ballon5.png" data-pos="300" data-speed=".6" style="left:55%;top:300px;">
+        <img class="parallax" src="assets/ballon6.png" data-pos="350" data-speed=".5" style="left:65%;top:350px;">
+    </div>
+    <div class="container-fluid" style="background-color:darkgrey;min-height: 2000px"></div>
+
+
+
+    <script>
+        $(document).ready(function() {
+            $(window).scroll(function() {
+                var scrolled = $(window).scrollTop();
+                $(".parallax").each(function() {
+                    $(this).css('top', ($(this).data("pos") + scrolled * $(this).data("speed")) + 'px');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

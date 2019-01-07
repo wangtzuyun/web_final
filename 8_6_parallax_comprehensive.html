@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+    <title>Animated Storytelling</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/shadow.css">
+    <style>
+        body {
+            background: navy url(assets/deepsea.jpg) top center no-repeat fixed;
+            background-size: cover;
+            height: 2000px;
+        }
+
+        #bubbles1,
+        #bubbles2,
+        #fish {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: fixed;
+            z-index: -1;
+            background: url(assets/bubbles1.png) 5% 50% no-repeat;
+        }
+
+        #bubbles2 {
+            background: url(assets/bubbles3.png) 95% 90% no-repeat;
+        }
+
+        #fish {
+            left: -100%;
+            background: url(assets/fish.png) right 90% no-repeat;
+        }
+
+        div.credits {
+            text-align: right;
+            color: white;
+        }
+
+        div.credits a {
+            color: lightyellow;
+            text-decoration: none;
+        }
+
+        /* #### CSS media queries. Smaller versions of bg images for small screen devices #### */
+
+        @media screen and (max-device-width: 860px) {
+
+            body {
+                background-image: url(deepsea_small.jpg);
+            }
+
+            #bubbles1 {
+                background-image: url(bubbles1_small.png);
+            }
+
+            #bubbles2 {
+                background-image: url(bubbles3_small.png);
+            }
+
+            #fish {
+                background-image: url(fish_small.png);
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="credits">Sample from <a href="http://javascriptkit.com/dhtmltutors/parallaxscrolling/parallaxfinal.htm" target="_blank">the page</a></div>
+
+
+    <div id="bubbles1"></div>
+    <div id="bubbles2"></div>
+    <div id="fish"></div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+    <script>
+        $(function() {
+            $(window).scroll(function() {
+                var scroll = $(window).scrollTop();
+                var winheight = $(window).height();
+                var scrollamount = (scroll/($(document).height()-winheight)*100)
+                $("#bubbles1").css("top", -scroll* .2 + "px");
+                $("#bubbles2").css("top", -scroll* .5 + "px");
+                $("#fish").css("left", -100 + scrollamount + "%");
+            });
+        });
+
+
+        //        var isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent)
+        //
+        //
+        //        // Create cross browser requestAnimationFrame method:
+        //        window.requestAnimationFrame = window.requestAnimationFrame ||
+        //            window.mozRequestAnimationFrame ||
+        //            window.webkitRequestAnimationFrame ||
+        //            window.msRequestAnimationFrame ||
+        //            function(f) {
+        //                setTimeout(f, 1000 / 60)
+        //            }
+        //
+        //        var bubble1 = document.getElementById('bubbles1')
+        //        var bubble2 = document.getElementById('bubbles2')
+        //        var fish = document.getElementById('fish')
+        //
+        //        var scrollheight = document.body.scrollHeight // height of entire document
+        //        var windowheight = window.innerHeight // height of browser window
+        //
+        //
+        //        function parallaxbubbles() {
+        //            var scrolltop = window.pageYOffset // get number of pixels document has scrolled vertically
+        //            var scrollamount = (scrolltop / (scrollheight - windowheight)) * 100 // get amount scrolled (in %)
+        //            bubble1.style.top = -scrolltop * .2 + 'px' // move bubble1 at 20% of scroll speed
+        //            bubble2.style.top = -scrolltop * .5 + 'px' // move bubble2 at 50% of scroll speed
+        //            fish.style.left = -100 + scrollamount + '%'
+        //
+        //        }
+        //
+        //        if (!isiOS) {
+        //            window.addEventListener('scroll', function() { // on page scroll
+        //                requestAnimationFrame(parallaxbubbles) // call parallaxbubbles() on next available screen repaint
+        //            }, false)
+        //
+        //            window.addEventListener('resize', function() { // on window resize
+        //                var scrollamount = (scrolltop / (scrollheight - windowheight)) * 100 // get amount scrolled (in %)
+        //                fish.style.left = -100 + scrollamount + '%'
+        //            }, false)
+        //        }
+    </script>
+
+</body>
+
+</html>

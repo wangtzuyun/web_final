@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div class="jumbotron" style="background-color: gray;min-height: 2000px;border-radius: 0px;color:white">
+        <h1>height 2000px waiting to show next div</h1>
+    </div>
+
+    <div class="container-fluid" style="min-height: 1000px;background-color: dodgerblue;color:white">
+        <h1>Animated h1</h1>
+        <p class="list-group">1st paragraph next to h1</p>
+        <p class="list-group">2nd paragraph next to h1</p>
+        <p class="list-group">3rd paragraph next to h1</p>
+    </div>
+
+    <div class="container-fluid" style="min-height: 1000px;background-color: coral;color:white">
+        <h1>Animated h1</h1>
+        <p class="list-group">1st paragraph next to h1</p>
+        <p class="list-group">2nd paragraph next to h1</p>
+        <p class="list-group">3rd paragraph next to h1</p>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>
+        $("h1").click(function() {
+            $(this).next('.list-group').toggle(500);
+        });
+
+        $("h1").on({
+            mouseenter: function() {
+                $(this).css("color", "gray");
+                $(this).animate({
+                    "font-size": "+=10%",
+                }, 300);
+            },
+            mouseleave: function() {
+                $(this).css("color", "white");
+                $(this).animate({
+                    "font-size": "-=10%"
+                }, 300);
+            }
+        });
+    </script>
+</body>
+
+</html>

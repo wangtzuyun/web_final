@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Hello, world!</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Passero+One" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rancho&effect=3d-float|3d">
+
+    <style>
+        body, .container-fluid {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .jumbotron {
+            margin-bottom: 0px;
+        }
+        
+        .video {
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            position:absolute;
+        }
+        
+        .fixed {
+            position: fixed;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron" style="min-height: 2000px; background-color: darkgrey; color:white"></div>
+    <video id="video1" src="assets/obama1.mp4" class="video"></video>
+    <div class="container-fluid" style="min-height: 2000px; color:white;"></div>
+    <div id="div3" class="container-fluid" style="min-height: 2000px; background-color: rgba(0, 0, 0, 0.8); color:white"></div>
+    <video id="video2" src="assets/obama2.mp4" class="video"></video>
+    <div class="container-fluid" style="min-height: 2000px; color:white;"></div>
+    <div id="div5" class="container-fluid" style="min-height: 2000px; background-color: rgba(0, 0, 0, 0.8); color:white"></div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+
+            var video1_pos = $('#video1').position().top;
+            var video2_pos = $('#video2').position().top;
+            var div3_pos = $('#div3').position().top;
+            var div5_pos = $('#div5').position().top; //Reserve the original height
+
+            $(window).scroll(function() {
+                var scroll = $(window).scrollTop();
+                var winh = $(window).height();
+                
+                if (scroll >= video1_pos) {
+                    $('#video1').addClass('fixed');
+                }else{
+                    $('#video1').removeClass('fixed');
+                }
+                if (scroll >= video2_pos) {
+                    $('#video2').addClass('fixed');
+                }else{
+                    $('#video2').removeClass('fixed');
+                }
+
+
+                if (scroll > video1_pos - winh / 2 && scroll < div3_pos) {
+                    $('#video1')[0].play();
+                } else {
+                    $('#video1')[0].pause();
+                }
+
+                if (scroll > video2_pos - winh / 2 && scroll < div5_pos) {
+                    $('#video2')[0].play();
+                } else {
+                    $('#video2')[0].pause();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

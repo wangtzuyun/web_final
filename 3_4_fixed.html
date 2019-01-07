@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="fixed.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- self-defined js -->
+    <script src="fixed.js"></script>
+    <style>
+        .jumbotron {
+            margin-bottom: 0px;
+            background-color: coral;
+            color: white;
+        }
+
+        #sky {
+            background: #000 url("assets/sky.jpg") center top;
+            z-index=-2;
+            background-attachment: fixed;
+            background-position: top;
+            background-size: cover;
+            /*    min-height: 1000px;*/
+            width: 100%;
+            padding-right: 0px;
+            padding-top: 0px;
+
+        }
+
+        #sky .row div:first-child {
+            /*    position:relative;*/
+            min-height: 1000px;
+        }
+
+        #sky .row div:last-child {
+            z-index: 2;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            min-height: 1000px;
+        }
+
+
+        #sky img {
+            position: fixed;
+            width: 40%;
+        }
+
+        footer {
+            background-color: coral;
+            color: white;
+            min-height: 800px;
+
+        }
+
+
+        #naruto-left {
+            /*    background: #000 url("https://i.ytimg.com/vi/EJyNH-r_7Ek/maxresdefault.jpg") left top;*/
+            /*    background-position: -200% 0%;*/
+            background: #000 url("assets/naruto.jpg") left top;
+            min-height: 800px;
+            background-attachment: fixed;
+
+        }
+
+        #naruto-right {
+            background: #000 url("assets/naruto.jpg") right top;
+            min-height: 800px;
+            background-attachment: fixed;
+        }
+
+        #naruto {
+            background-color: coral;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron text-center">
+        <h1>Test for fixed background</h1>
+        <!--        <img class="mx-auto d-block" src="img/rocket.png">-->
+    </div>
+
+
+
+
+    <div id="sky" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4">
+                <!--                <img src="http://www.321rockets.com/content/image/29766/800/002162_main_1.png">-->
+                <img class="mx-auto d-block" src="assets/rocket.png">
+            </div>
+            <div class="col-sm-8">
+                <h1>Sky story</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="jumbotron text-center">
+        <h1>Test for two parallel divs</h1>
+    </div>
+
+    <div id="naruto" class="container-fluid">
+        <div class="row">
+            <div id="naruto-left" class="col-sm-4"></div>
+            <div class="col-sm-4"></div>
+            <div id="naruto-right" class="col-sm-4"></div>
+        </div>
+    </div>
+
+    <footer class="container-fluid text-center">
+        <p>Made By ji-lung</p>
+    </footer>
+</body>
+
+</html>

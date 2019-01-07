@@ -1,0 +1,25 @@
+
+.jumbotron {
+    background-color: coral;
+}
+
+.iframe-container {
+/*    position: relative;*/
+    width: 60%;
+    height: 0;
+    padding-bottom: 30%;
+    frameborder=0;
+}
+.iframe-table {
+/*    position: absolute;*/
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 80%;
+    min-height: 500px;
+}
+
+
+
+
+

@@ -1,0 +1,25 @@
+.container-fluid{
+    padding:0;
+}
+ section{
+/*     float:left; */
+     width:50%;
+     position:relative;
+     left: 50%;
+     top: 0;
+     bottom:0;
+}
+.screen1{background-color:rgba(170,170,170,1);}
+.screen2{background-color:rgba(160,160,160,1);}
+.screen3{background-color:rgba(150,150,150,1);}
+.screen4{background-color:rgba(140,140,140,1);}
+.screen5{background-color:rgba(130,130,130,1);}
+.screen6{background-color:rgba(120,120,120,1);}
+h1{
+    position: absolute;
+    text-align:center; 
+    color:#ff0000; 
+    left: 50%;
+    top: 50%;
+/*    margin:25% 0 0 0;*/
+}

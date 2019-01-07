@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container-fluid" style="position:fixed;top:50%;width:100%;background-color:red;height:2px;z-index:10"><p class="text-center" style="color:red">top:50%<br/>
+    <a href="js/waypoints.zip" style="color:white;">Download waypoints.js here and unzip to your js/ folder.</a>
+    </p></div>
+<div class="container-fluid" style="min-height:1000px;background-color: dimgray;color:white;">
+</div>
+<div id="v1" class="container text-center">
+    <video id="video1" src="assets/zoomin.mp4" style="width:50%"></video>
+</div>
+<div id="v2" class="container text-center">
+    <video id="video2" src="assets/zoomout.mp4" style="width:50%"></video>
+</div>
+<div class="container-fluid" style="min-height:1000px;background-color: dimgray;color:white;"></div>
+    
+    
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="js/waypoints/jquery.waypoints.min.js"></script>
+    
+<script>
+    $(function() {
+
+        $('#video1').waypoint(function() {
+                    $('#video1')[0].play();
+        }, {
+            offset: '50%', // middle of the page
+            triggerOnce: true // just my preference...
+        });
+
+        $('#video2').waypoint(function() {
+            $('#video2')[0].play();
+        }, {
+            offset: '50%', // middle of the page
+            triggerOnce: true // just my preference...
+        });
+    });
+</script>
+</body>
+
+</html>

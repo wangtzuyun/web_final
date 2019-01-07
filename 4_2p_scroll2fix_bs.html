@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="5_1_scroll2fix_bs.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        .affix {
+            top: 0px;
+            z-index: 10;
+        }
+        
+        #tofix2.affix {
+            top: -50px;
+            z-index: 9;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container-fluid" style="background-color:dodgerblue;color:#fff;height:200px;">
+        <h3>Bootstrap Affix, height:200px</h3>
+    </div>
+
+
+
+    <div id="tofix" class="container-fluid" style="background-color:coral;color:white;width:100%;height:50px">
+        <h3>div#tofix width:100%; height:50px;</h3>
+    </div>
+
+
+    <div class="container-fluid" style="background-color:gray;color:white;width:100%;height:200px">
+        <h3>div height:200px</h3>
+    </div>
+
+    <div id="text" class="container-fluid" style="min-height:2000px;">
+        <h3>Left circle: svg#tofix2, scroll 450px to fix on top</h3>
+        <svg id="tofix2" width="250" height="250">
+            <circle cx="100" cy="100" r="100" fill="coral" />
+        </svg>
+    </div>
+
+
+    <footer class="container-fluid" style="background-color:darkgray;height:1000px"></footer>
+
+    <script>
+        $(document).ready(function() {
+            $('#tofix').affix({
+                offset: {
+                    top: 200
+                }
+            });
+
+            $('#tofix2').affix({
+                offset: {
+                    top: 450
+                }
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

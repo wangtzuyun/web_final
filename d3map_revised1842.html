@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>template</title>
+    <!-- libraries-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+
+    <style>
+        path {
+            cursor: pointer;
+            stroke: rgba(255, 0, 0, 0.5);
+            'stroke-width': 1;
+        }
+        
+        
+
+    </style>
+
+
+    <script type="text/javascript" src="/js/d3.v3.min.js"></script>
+    <!-- custom files-->
+    <link rel="stylesheet" type="text/css" href="/css/d3map.css">
+    <script type="text/javascript" src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src="/js/waypoints/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="/js/d3map.js"></script>
+
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <svg width="800px" height="650px" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid"></svg>
+        </div>
+        <div class="col-sm-6">
+
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            var density = {
+                "連江縣": 1142, //1
+                "金門縣": 494, //2
+                "宜蘭縣": 642, //3
+                "新竹縣": 1444, //4
+                "苗栗縣": 1359, //5
+                "彰化縣": 846, //6
+                "南投縣": 2298, //7
+                "雲林縣": 2193, //8
+                "嘉義縣": 4133, //9
+                "屏東縣": 1340, //10
+                "臺東縣": 4813, //11
+                "花蓮縣": 1508, //12
+                "澎湖縣": 63, //13
+                "基隆市": 66, //14
+                "新竹市": 172, //15
+                "嘉義市": 473, //16
+                "臺北市": 1942, //17
+                "高雄市": 2715, //18
+                "新北市": 2007, //19
+                "臺中市": 1840, //20
+                "臺南市": 6310, //21
+                "桃園市": 2730 //22
+
+            };
+            d3.json("county.json", function(topodata) {
+                var features = topojson.feature(topodata, topodata.objects["county"]).features;
+                var color = d3.scale.linear().domain([0, 10000]).range(["#090", "#f00"]);
+                var path = d3.geo.path().projection( // 路徑產生器
+                    d3.geo.mercator().center([121, 24]).scale(6000) // 座標變換函式
+                );
+
+                d3.select("svg").selectAll("path").data(features).enter().append("path").attr("d", path, );
+
+                for (i = features.length - 1; i >= 0; i--) {
+                    features[i].properties.density = density[features[i].properties.C_Name];
+                }
+                var color = d3.scale.linear().domain([0, 10000]).range(["#090", "#f00"]);
+                d3.select("svg").selectAll("path").data(features).attr({
+                    d: path,
+                    fill: function(d) {
+                        return color(d.properties.density);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

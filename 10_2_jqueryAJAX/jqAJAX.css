@@ -1,0 +1,75 @@
+/*Global class*/
+.button{
+    background-color: gray;
+    color: white;
+    padding: 5px;
+}
+
+.button:hover{
+    background-color: coral;
+    box-shadow: 0px 1px 5px #888888;
+}
+
+
+/*specified*/
+.jumbotron {
+    background: url("http://www.growingyourbaby.com/wp-content/uploads/2015/12/pregnant-baby.jpg") center center;
+    /*    color: coral;*/
+    /*    text-shadow: 0px 0px 10px black;*/
+    color: rgba(, 0, 0.7);
+    font-weight: 800;
+    padding: 100px 25px;
+    font-family: "Archivo Black", sans-serif;
+    width: auto;
+    height: 400px;
+    background-size: cover;
+    overflow: hidden;
+    margin-bottom: 0px;
+}
+
+
+#parallax1 {
+    background-image: url("http://assets.babycenter.com/ims/2015/01/pregnancy-week-26-ear-nerves_4x3.jpg");
+    min-height: 300px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+#pregnancy_stage img{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height:auto;
+    width: 100%;
+}
+
+.affix {
+  top: -50px;
+    z-index: 11;
+}
+
+#tofix2.affix{
+    top: 0px;
+    z-index: 10;
+}
+
+#tofix2 ul{
+    padding-top: 10px;
+}
+
+#tofix2 li{
+    display: inline;
+}
+
+#tofix2 li, #tofix2 li a:visited{
+    color: white;
+    text-decoration: underline;
+    font-size: 16px;
+}
+#tofix2 li:hover, #tofix2 li a:hover{
+    color: black;
+}
+
+

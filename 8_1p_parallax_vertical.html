@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Parallax vertical</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+
+    <style>
+        img {
+            width: 10%;
+            position: absolute;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="container-fluid" style="background-color:beige;min-height: 1000px">
+        <img id="b1" src="assets/ballon1.png" style="left:15%;top:500px">
+        <img id="b2" src="assets/ballon2.png" style="left:25%;top:550px;">
+        <img id="b3" src="assets/ballon3.png" style="left:35%;top:600px;">
+        <img id="b4" src="assets/ballon4.png" style="left:45%;top:650px;">
+        <img id="b5" src="assets/ballon5.png" style="left:55%;top:700px;">
+        <img id="b6" src="assets/ballon6.png" style="left:65%;top:750px;"> </div>
+    <div class="container-fluid" style="background-color:darkgrey;min-height: 2000px"></div>
+
+    <script>
+        $(document).ready(function() {
+
+            $(window).scroll(function() {
+                var winh = $(window).height();
+                var winw = $(window).width();
+                var scrolled = $(window).scrollTop();
+                $("#b1").css('top', (500 - scrolled * .15) + 'px');
+                $("#b2").css('top', (550 - scrolled * .25) + 'px');
+                $("#b3").css('top', (600 - scrolled * .35) + 'px');
+                $("#b4").css('top', (650 - scrolled * .45) + 'px');
+                $("#b5").css('top', (700 - scrolled * .55) + 'px');
+                $("#b6").css('top', (750 - scrolled * .65) + 'px');
+            });
+        });
+    </script>
+</body>
+
+</html>

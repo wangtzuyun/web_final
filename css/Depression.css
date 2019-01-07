@@ -1,0 +1,243 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+big
+{
+	font-family: 'Comfortaa', cursive;
+	letter-spacing: 5px;
+}
+
+div span {
+	font-family: 'Comfortaa', cursive;
+	letter-spacing: 5px;
+	text-shadow: 2px 2px 4px #000000;
+}
+
+p {
+	font-family: "Lato", sans-serif;
+	font-size: 20px;
+}
+
+body,
+html {
+	height: 100%;
+	color: black;
+	line-height: 1.8;
+}
+
+.bgimg-1,
+.bgimg-2,
+.bgimg-3,
+.bgimg-4,
+.bgimg-5,
+.img6,
+.img7{
+	opacity: 0.7;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.bgimg-1 {
+
+	background-image: url('pic/time.jpg');
+	min-height: 100%;
+}
+
+.bgimg-2 {
+
+	background-image: url("pic/time.jpg");
+	min-height: 100%;
+}
+
+.bgimg-3 {
+
+	background-image: url("pic/raindrops.jpg");
+	min-height: 300px;
+}
+
+.bgimg-4{
+	background-image: url("pic/Maple.jpg");
+	min-height: 300px;
+}
+
+
+
+
+
+/* NavBar*/
+.w3-navbar li a:hover {
+	background-color: #000000;
+	color:white;
+}
+
+li a:hover,
+.dropdown:hover .dropbtn {
+	background-color: #f27886;
+	color: black;
+}
+
+#myNavbar {
+	color: black
+}
+
+;
+
+
+
+/*Piechart*/
+svg{
+	align-content: center;
+}
+
+#circleBar-web-text,
+#circleBar-second-text{
+    font-family: 'FranklinGothic-Book' "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+    font-size:16px;
+    fill:#000;
+}
+#circleBar-web-labels tspan,
+#circleBar-second-labels tspan {
+    font-family: 'FranklinGothic-Book' "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+    font-size:10px;
+    fill:#6D6E71;
+}
+
+#circleBar-web-values tspan,
+#circleBar-second-values tspan {
+    font-family: 'FranklinGothic-Book' "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+    font-size: 9px;
+    font-weight:bold;
+    fill:#000;
+}
+#circleBar-web-values tspan {
+    fill: #7D3A4D;
+}
+#circleBar-second-values tspan {
+    fill: #684E88;
+}
+
+#intro1{
+	vertical-align: 
+}
+
+/*Barchart*/
+#chartContainer{
+	position: relative;
+	width:100%;
+	height: 300px;
+}
+
+#intro3{
+	background-color: #242222;
+	color:floralwhite;
+}
+
+.w3-card-4{
+	height:700px;
+}
+
+#intro4 p, #intro4_2 p, #intro5_2 p {
+	color:black;
+	text-shadow: 0px 0px 0px #000000;
+}
+
+#intro5 p{
+	color:snow;
+}
+
+.img6{
+	background-image: url(pic/woman.jpg);
+}
+
+.img7{
+	background-image: url(pic/tie.jpg);
+	opacity:0.8
+}
+
+//Keyframes
+@keyframes anim-lightspeed-in {
+  0%   { 
+    transform: translateX(-200%);
+    opacity: 1; 
+  }
+  100% { 
+    transform: translateX(0);
+    opacity: 1; 
+  }
+}
+
+
+
+
+
+@-webkit-keyframes zoom {
+	from {
+		-webkit-transform: scale(0)
+	}
+	to {
+		-webkit-transform: scale(1)
+	}
+}
+
+@keyframes zoom {
+	from {
+		transform: scale(0.1)
+	}
+	to {
+		transform: scale(1)
+	}
+}
+
+
+/* The Close Button */
+
+.close {
+	position: absolute;
+	top: 15px;
+	right: 35px;
+	color: #f1f1f1;
+	font-size: 40px;
+	font-weight: bold;
+	transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+	color: #bbb;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+h5 {
+	padding: 0;
+}
+
+#gallary img {
+	width: 100%;
+	height: 100%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#map {
+	width: 100%;
+	height: 300px;
+}
+
+#back:hover,
+#arrow2:hover {
+	color: #f27886;
+}
+
+
+/* 100% Image Width on Smaller Screens */
+
+@media only screen and (max-width: 700px) {
+	.modal-content {
+		width: 100%;
+	}
+}

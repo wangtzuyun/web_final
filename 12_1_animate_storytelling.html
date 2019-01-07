@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Parallax vertical</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/shadow.css">
+
+
+    <style>
+        #div1 {
+            background-image: url("assets/konoha.jpg");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #div2 {
+            background-image: url("assets/bg2.jpg");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+    <div class="container-fluid" style="background-color:black;height:100vh;">
+    </div>
+    <div id="div1" class="container-fluid innershadow1" style="background-color:black;height:200vh;position:relative;">
+        <img id="naruto1" data-top=15 data-left=25 data-width=20 src="assets/naruto1.png" class="dropshadow1" style="position:absolute;width:20%;top:15%;left:25%;filter:grayscale(.2) blur(1px);">
+        <img id="sasuke1" data-top=20 data-left=50 data-width=30 src="assets/sasuke1.png" class="dropshadow1" style="position:absolute;width:30%;top:20%;left:50%;">
+
+    </div>
+    <div id="space1" class="container-fluid" style="background-color:rgba(0,0,0,0.5);min-height: 1800px"></div>
+    <div id="div2" class="container-fluid" style="background-color:black;height:100vh;"></div>
+    <div class="container-fluid" style="background-color:darkgrey;min-height: 1800px"></div>
+
+
+
+    <script>
+        $(document).ready(function() {
+            var div1_pos = $("#div1").offset().top;
+            var space1_pos = $("#space1").offset().top;
+            var winh = $(window).height();
+            $(window).scroll(function() {
+                var scrolled = $(window).scrollTop();
+                var div1_scrolled = scrolled - div1_pos;
+                if (div1_scrolled > 0 && scrolled < space1_pos - winh) {
+                    $("#naruto1").css('left', ($("#naruto1").data('left') + div1_scrolled * 0.01) + '%');
+                    $("#sasuke1").css('left', ($("#sasuke1").data('left') - div1_scrolled * 0.01) + '%');
+                    $("#naruto1").css('top', ($("#naruto1").data('top') + div1_scrolled * 0.055) + '%');
+                    $("#sasuke1").css('top', ($("#sasuke1").data('top') + div1_scrolled * 0.06) + '%');
+
+                    $("#naruto1").css('width', ($("#naruto1").data('width') + div1_scrolled * 0.01) + '%');
+                    $("#sasuke1").css('width', ($("#sasuke1").data('width') + div1_scrolled * 0.01) + '%');
+
+                    console.log("div1_pos:" + div1_pos +
+                        "\tscrolled:" + scrolled +
+                        "\tspace1:" + space1_pos);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

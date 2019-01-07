@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Romeo and Juliet Script</title>
+
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        #div1 {
+            padding: 0;
+            margin: 0;
+            font-family: 'Oxygen', sans-serif;
+        }
+        
+        h1 {
+            font-weight: 300;
+            padding: 20px;
+            margin: 0;
+            background: #000;
+            color: #ff0;
+        }
+        
+        #box {
+            width: 400px;
+            height: 450px;
+            top: 50%;
+            left: 50%;
+            margin-top: -225px;
+            /* Negative half of height. */
+            margin-left: -200px;
+            /* Negative half of width. */
+            overflow: scroll;
+            color: beige;
+            border: 1px solid rgba(0, 0, 0, .25);
+            box-shadow: inset 0px 0px 10px 3px rgba(0, 0, 0, 0.877);
+            border-radius: 5px;
+            position: fixed;
+        }
+        
+        #box img {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            z-index: -1;
+        }
+        
+        #box div {
+            margin-top: 100%;
+            padding: 20px;
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+        
+        #box div h2 {
+            padding: 0;
+            margin: 0;
+        }
+        
+         ::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .img1{
+            transition: opacity 1s ease-in-out;
+            content:url("assets/rj1.jpg"); 
+        }
+        .img2{
+            transition: opacity 1s ease-in-out;
+            content:url("assets/rj2.jpg"); 
+        }
+        
+        
+
+    </style>
+
+
+</head>
+
+<body>
+    <!--    <h1>Romeo and Juliet</h1>-->
+    <div id="div1" style="height:100vh;width:100vw;position:fixed">
+        <img id="backimg" src="assets/rj1.jpg" style="width:100%;filter:brightness(50%);">
+    </div>
+    <section id="box">
+        <img src="assets/romeo_juliet.jpeg" />
+        <div id="s2">
+            <h2>SCENE II. Capulet's orchard.</h2>
+            <dl>
+                <dt>Enter ROMEO</dt>
+                <dt>ROMEO</dt>
+                <dd>He jests at scars that never felt a wound.</dd>
+                <dd>(JULIET appears above at a window)</dd>
+                <dd>But, soft! what light through yonder window breaks?</dd>
+                <dd>It is the east, and Juliet is the sun.</dd>
+                <dd>Arise, fair sun, and kill the envious moon,</dd>
+                <dd>Who is already sick and pale with grief,</dd>
+                <dd>That thou her maid art far more fair than she:</dd>
+                <dd>Be not her maid, since she is envious;</dd>
+                <dd>Her vestal livery is but sick and green</dd>
+                <dd>And none but fools do wear it; cast it off.</dd>
+                <dd>It is my lady, O, it is my love!</dd>
+                <dd>O, that she knew she were!</dd>
+                <dd>She speaks yet she says nothing: what of that?</dd>
+                <dd>Her eye discourses; I will answer it.</dd>
+                <dd>I am too bold, 'tis not to me she speaks:</dd>
+                <dd>Two of the fairest stars in all the heaven,</dd>
+                <dd>Having some business, do entreat her eyes</dd>
+                <dd>To twinkle in their spheres till they return.</dd>
+                <dd>What if her eyes were there, they in her head?</dd>
+                <dd>The brightness of her cheek would shame those stars,</dd>
+                <dd>As daylight doth a lamp; her eyes in heaven</dd>
+                <dd>Would through the airy region stream so bright</dd>
+                <dd>That birds would sing and think it were not night.</dd>
+                <dd>See, how she leans her cheek upon her hand!</dd>
+                <dd>O, that I were a glove upon that hand,</dd>
+                <dd>That I might touch that cheek!</dd>
+                <dt>JULIET</dt>
+                <dd>Ay me!</dd>
+                <dt>ROMEO</dt>
+                <dd>She speaks:</dd>
+                <dd>O, speak again, bright angel! for thou art</dd>
+                <dd>As glorious to this night, being o'er my head</dd>
+                <dd>As is a winged messenger of heaven</dd>
+                <dd>Unto the white-upturned wondering eyes</dd>
+                <dd>Of mortals that fall back to gaze on him</dd>
+                <dd>When he bestrides the lazy-pacing clouds</dd>
+                <dd>And sails upon the bosom of the air.</dd>
+                <dt>JULIET</dt>
+                <dd>O Romeo, Romeo! wherefore art thou Romeo?</dd>
+                <dd>Deny thy father and refuse thy name;</dd>
+                <dd>Or, if thou wilt not, be but sworn my love,</dd>
+                <dd>And I'll no longer be a Capulet.</dd>
+                <dt>ROMEO</dt>
+                <dd>[Aside] Shall I hear more, or shall I speak at this?</dd>
+                <dt>JULIET</dt>
+                <dd>'Tis but thy name that is my enemy;</dd>
+                <dd>Thou art thyself, though not a Montague.</dd>
+                <dd>What's Montague? it is nor hand, nor foot,</dd>
+                <dd>Nor arm, nor face, nor any other part</dd>
+                <dd>Belonging to a man. O, be some other name!</dd>
+                <dd>What's in a name? that which we call a rose</dd>
+                <dd>By any other name would smell as sweet;</dd>
+                <dd>So Romeo would, were he not Romeo call'd,</dd>
+                <dd>Retain that dear perfection which he owes</dd>
+                <dd>Without that title. Romeo, doff thy name,</dd>
+                <dd>And for that name which is no part of thee</dd>
+                <dd>Take all myself.</dd>
+                <dt>...</dt>
+                <dt>ROMEO</dt>
+                <dd>Lady, by yonder blessed moon I swear That tips with silver all these fruit-tree tops--</dd>
+                <dt>JULIET</dt>
+                <dd>O, swear not by the moon, the inconstant moon, That monthly changes in her circled orb, Lest that thy love prove likewise variable.</dd>
+                <dt>ROMEO</dt>
+                <dd>What shall I swear by?</dd>
+                <dt> JULIET</dt>
+                <dd>Do not swear at all; Or, if thou wilt, swear by thy gracious self, Which is the god of my idolatry, And I'll believe thee.</dd>
+
+                <dt>...</dt>
+                <dt>JULIET</dt>
+                <dd>A thousand times good night!</dd>
+                <dd>(Exit, above)</dd>
+                <dt>ROMEO</dt>
+                <dd>A thousand times the worse, to want thy light.</dd>
+                <dd>Love goes toward love, as schoolboys from</dd>
+                <dd>their books,</dd>
+                <dd>But love from love, toward school with heavy looks.</dd>
+                <dd>(Retiring)</dd>
+            </dl>
+        </div>
+        <!--        <img src="assets/romeo_juliet.jpeg" />-->
+        <div id="s6">
+            <h2>SCENE VI. Friar Laurence's cell.</h2>
+            <dl>
+                <dd>(Enter FRIAR LAURENCE and ROMEO)</dd>
+                <dt>FRIAR LAURENCE</dt>
+                <dd>So smile the heavens upon this holy act,</dd>
+                <dd>That after hours with sorrow chide us not!</dd>
+                <dt>ROMEO</dt>
+                <dd>Amen, amen! but come what sorrow can,</dd>
+                <dd>It cannot countervail the exchange of joy</dd>
+                <dd>That one short minute gives me in her sight:</dd>
+                <dd>Do thou but close our hands with holy words,</dd>
+                <dd>Then love-devouring death do what he dare;</dd>
+                <dd>It is enough I may but call her mine.</dd>
+                <dt>FRIAR LAURENCE</dt>
+                <dd>These violent delights have violent ends</dd>
+                <dd>And in their triumph die, like fire and powder,</dd>
+                <dd>Which as they kiss consume: the sweetest honey</dd>
+                <dd>Is loathsome in his own deliciousness</dd>
+                <dd>And in the taste confounds the appetite:</dd>
+                <dd>Therefore love moderately; long love doth so;</dd>
+                <dd>Too swift arrives as tardy as too slow.
+            </dl>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+
+            $("#box").scroll(function() {
+                var pos6 = $("#s6").offset().top;
+                var boxh = $("#box").height();
+                var s = $("#box").scrollTop();
+                $("#box img").css("-webkit-transform", "translateY(" + (s / 2) + "px)");
+
+                if (s > pos6) {
+                    $("#backimg").addClass("img2");
+                    $("#backimg").removeClass("img1");
+                } else {
+                    $("#backimg").addClass("img1");
+                    $("#backimg").removeClass("img2");
+                }
+
+            });
+            
+            $(window).resize(function() {
+                var winh = $(window).height();
+                var winw = $(window).width();
+                var imgh = $("#box img").height();
+                var imgw = $("#box img").width();
+                if(winw > winh*imgw/imgh){
+                    $("#backimg").css("width", "100%");
+                    $("#backimg").css("height", "auto");    
+                }else{
+
+                    $("#backimg").css("width", "auto");
+                    $("#backimg").css("height", "100%"); 
+                }
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
